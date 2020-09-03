@@ -1,0 +1,34 @@
+
+
+<style type="text/css">
+div.p{
+padding:250px 0;
+}
+
+</style>
+@extends('layouts.master')
+@section('title', 'About')
+@section('content')
+
+
+<main class="index inside">
+ <section  class="our-team">  /// change name
+  <div class="container">
+   <h3 class="cancer-title"> <a href="#">Medical Specialists</a></h3>
+   <div class="items row">
+
+  </div>
+
+  </div>
+
+    <div class="row">
+      <div class="col-12 text-center">
+        {{ $teams->links() }}
+      </div>    
+    </div>
+
+ </div>
+</section>
+</main>
+
+@endsection

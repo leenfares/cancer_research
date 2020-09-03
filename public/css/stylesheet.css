@@ -1,0 +1,750 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/***************************************HEADER*********************************************/
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+.header {
+	background: rgba(23, 49, 133,0.3);
+	position: absolute;
+	width: 100%;
+	z-index: 999999;
+	top:0;
+}
+.header div.info{
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+    font-size: 15px;
+    color: #fff;
+}
+.header div.info a{
+    color: #fff;
+	text-decoration: none;
+	font-size: 15px;  
+}
+.header div.info a:hover{
+	color:#7A797A;
+	text-decoration: none;
+}
+.header div.info div.mail-gency{
+	border-right:  1px solid rgba(255, 255, 255, .3);
+	border-left:   1px solid rgba(255, 255, 255, .3);
+	padding-top: 9px;
+	padding-bottom: 13px;
+}
+.header div.info div.email{
+	float: left;
+}
+.header div.info div.emergency{
+	float: right;
+}
+.header div.info div.location{
+	padding-top: 9px;
+	padding-bottom: 13px;
+}
+.header div.info ul.social-menu{
+	list-style: none;
+	padding :9px 0 13px 0;
+	margin-bottom: 0px;
+	text-align: right;
+}
+.header div.info ul.social-menu a{
+	font-size: 16px;
+	display: block;
+	margin-right: 11px;
+}
+.header nav{
+padding: 2rem 1rem;
+}
+.header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a{
+	color: #fff;
+	font-size:18px;
+	display: block;
+    margin: 0 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 2px;
+    /*transition: .5s ease;*/
+}
+.header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a:hover{
+border-bottom: 1px solid #fff;
+}
+.header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a.active{
+border-bottom: 1px solid #fff;
+color: #3aa5a0;/*blue*/
+}
+
+/***************************************SLIDER*********************************************/
+main.index div#slider div.carousel-inner  div.carousel-item{
+	height: 100vh;
+}
+main.index div#slider div.carousel-inner div.caption{
+	color: #fff;
+	text-align: left;
+	position: absolute;
+	bottom:30%;
+}
+main.index div#slider div.carousel-inner div.caption h1{
+    font-size: 45px;
+    text-shadow: 2px 2px 4px #262728;
+    font-weight: bold;
+    letter-spacing: -2.7px;
+}
+main.index div#slider div.carousel-inner div.caption p{
+font-size:30px;
+text-shadow: 2px 2px 4px #262728;
+}
+main.index div#slider div.carousel-inner div.caption div.ask{
+margin-top: 25px;
+}
+
+main.index div#slider ul.carousel-indicators > li {
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+}
+/***************************************Research*********************************************/
+
+main.index section#Research div.item {
+	overflow: hidden;
+}
+main.index section#Research div.item  div.icon{
+    margin-bottom: 11px;
+	width: 60px;
+}
+main.index section#Research div.item  a{
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 11px;
+    text-decoration: none;
+}
+main.index section#Research div.item div.res-img{
+padding-right:  0;
+}
+main.index section#Research div.item div.res-title{
+	padding-top: 15px;
+	background-color: #3aa5a0;
+}
+main.index section#Research div.item  a:hover{
+color:#173185;
+}
+main.index section#Research div.item  p{
+	font-size: 13px;
+	color: #616870;
+}
+
+/***************************************ABOUT*********************************************/
+main.index section#about {
+	min-height: 40vh;
+    color: #fff;
+    color: #000;
+    background-color: #fafafa;
+ }
+main.index section#about  h1{
+	text-align: center;
+	font-weight: bold;
+	color: #5d5d5d;
+margin-bottom: 50px;
+	
+}
+main.index section#about  h3{
+text-align: center;
+color: #5d5d5d;
+margin: 30px 0px;
+font-weight: bold;
+
+}
+main.index section#about  p,
+main.index section#about  ul
+{
+	color:#737373;
+
+}
+main.index section#about   div.about-img{
+    padding: 0 100px 0px 100px;
+
+}
+
+/**************************************************************************************/
+main.index div#latest-news{
+	text-align: center;
+	margin: auto;
+	padding :40px 35% 0 35%;	
+}
+main.index div#latest-news a{
+	font-size: 35px;
+	text-decoration: none;
+	color: #333333;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif; 
+   border-bottom: 2px solid #2a93c9;
+    padding-bottom: 10px;
+}
+/**************************************LATEST-NEWS**************************************/
+main.index section.latest-news{
+	padding: 45px 0;
+}
+main.index section.latest-news div.item div.icon  {
+overflow: hidden;
+margin-bottom: 20px;
+}
+main.index section.latest-news div.item div.cancer-image  {
+	transition: 0.5s;
+}
+main.index section.latest-news div.item:hover div.cancer-image  {
+	  transform: scale(1.2); 
+}
+main.index section.latest-news div.item h5.new a{
+    color: #0f3b51;
+   text-decoration: none;
+   font-weight: bold;
+   font-size: 18px;
+}
+main.index section.latest-news div.item h5.new a:hover{
+color:#3aa5a0;
+}
+main.index section.latest-news div.date span{
+color:#6F6F6F;
+font-size: 14px;
+}
+main.index section#allergy-news{
+	margin-bottom: 45px;
+}
+/***************************************courses****************************************/
+main.index div#coursestitle{
+	margin: auto;
+	padding :40px 0 0 0;	
+	margin-bottom: 40px;
+}
+main.index div#coursestitle a{
+	font-size: 24px;
+	text-decoration: none;
+	color: #333333;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif; 
+    border-bottom: 2px solid #2a93c9;
+    padding-bottom: 10px;
+}
+main.index section.courses div.item{
+margin-bottom: 20px;
+}
+
+main.index section.courses div.item div.icon  {
+overflow: hidden;
+}
+main.index section.courses div.item div.cancer-image  {
+	transition: 0.5s;
+	padding-bottom: 70%;
+}
+main.index section.courses div.item:hover div.cancer-image  {
+	  transform: scale(1.2); 
+}
+main.index section.courses div.item div.new {
+	background-color: #3aa5a0;
+	padding: 17px 15px;
+	max-height: 100px;
+
+}
+main.index section.courses div.item  a{
+    color: #fff;
+   text-decoration: none;
+   font-size: 16px;
+   display: block;
+}
+
+
+/***************************************our-team*********************************************/
+main.index section.our-team div.items {
+	padding: 0 15px;
+}
+main.index section.our-team div.item {
+	padding: 0;
+	/*margin-bottom: 30px;if hidden-md doesn't work*/
+}
+main.index section.our-team div.item div.extra {
+    padding: 38px 25px 20px 25px;
+    margin:-10px 0;
+    color: #a8a9aa;
+    font-size: 12px;
+    transition: .7s ease-in ;
+}
+main.index section.our-team div.item:hover div.extra{
+	box-shadow: inset 0 0  28px #d3d3d3;
+}
+main.index section.our-team div.item div.extra p.career{
+    font-size: 12px;
+    text-transform:uppercase;
+    margin-bottom: 0px;
+}
+main.index section.our-team div.item div.extra p.name a{
+	color: #333333;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+}
+main.index section.our-team div.item div.extra ul.dr-info{
+	list-style: none;
+	padding: 0;
+}
+main.index section.our-team div.item div.extra ul.dr-info i.fa-mobile-phone{
+	font-size: 17px;
+}
+main.index section.our-team div.item div.extra ul.dr-info a{
+    color: #a8a9aa;
+    text-decoration: none;
+    margin-left: 10px;
+}
+main.index section.our-team div.item div.extra ul.dr-info a:hover{
+    color: #2A93C9;
+}
+
+/***************************************sponsers*********************************************/
+main.index section#sponsers{
+padding-top:0;
+}
+main.index section#sponsers div.cancer-image{
+	padding-bottom: 50%;
+}
+/***************************************footer*******************************************/
+footer#footer{
+background-color:#173185;
+padding: 0;
+color: #fff;
+}
+footer#footer  a{
+	color:#fff;
+	font-size: 16px;
+	text-decoration: none;
+}
+footer#footer  a:hover{
+color:#cccdce;
+}
+footer#footer div.footer-social{
+	padding: 40px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+footer#footer div.footer-social ul.social-menu{
+	list-style: none;
+	padding :9px 0 13px 0;
+	margin-bottom: 0px;
+	text-align: right;
+}
+footer#footer div.footer-social ul.social-menu a{
+	display: block;
+	margin-right: 11px;
+}
+
+footer#footer div.footer-social form{
+	padding: 2px;
+}
+footer#footer div.footer-social form input,
+footer#footer div.footer-social form button{
+	background-color: #052382;
+	border:0;
+	color:#fff;
+	border-radius: 0;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+footer#footer div.footer-social form button{
+   margin-top:-3;
+   border-left: 0;
+}
+footer#footer div.footer-social form input{
+   border-right: 0;
+}
+footer#footer div.footer-social form input::placeholder{
+	color: #fff;
+}
+footer#footer div.quik-links{
+	padding: 30px 0;
+}
+
+footer#footer div.quik-links h3.cancer-title{
+	font-weight: bold;
+}
+footer#footer div.quik-links h3.cancer-title a:after{
+    border-bottom: 2px solid rgb(255,255,255,0.3);
+}
+footer#footer div.quik-links ul{
+	list-style: none;
+	padding-left: 0px;
+}
+footer#footer div.quik-links ul li{
+	margin-bottom: 7px;
+}
+footer#footer div.quik-links a.logo{
+margin-bottom: 20px;
+display: block;
+}
+footer#footer div.copyright{
+	padding: 40px 0 20px 0;
+	background-color: #052382;
+}
+footer#footer div.copyright div.rights{
+	text-align: right;
+}
+/***************************************GENERAL*********************************************/
+a.cancer-link{
+    min-width: 204px;
+    padding: 12px 30px;
+    color: #fff;
+    border:1px solid rgba(255, 255, 255,.5);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size:13px;
+    margin-right: 15px;
+    margin-top: 30px;
+    font-weight: bold;
+}
+a.cancer-link:hover{
+color:red;
+background-color: #fff;
+}
+.cancer-title a{
+	text-decoration: none;
+	color: #333333;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	display: block;
+	margin-bottom: 33px;
+    padding-bottom: 10px;
+    position: relative;
+}
+.cancer-title a:after{
+    content: ' ';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 2px solid #3aa5a0;
+    width: 100%;
+    max-width: 67px;
+}
+.cancer-image{
+position: relative;width: 100%;padding-bottom: 100%;overflow: hidden;
+}
+.cancer-image img{
+	position: absolute; left: 50%;top: 50%; min-height: 100%; width: 100%;-webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);object-fit: cover;object-position: center;
+ }
+ section{
+    padding: 60px 0;
+ }
+ .form-control:focus{
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/*******************************************MEDIA******************************************/
+
+@media (max-width: 1024px) {
+/******************slider*****************/
+main.index div#slider div.carousel-inner  div.carousel-item{
+	height: 50vh;
+}
+
+}
+@media (max-width: 768px) {
+
+/********************z****************/
+.header{
+	position: relative;
+}
+.header div.info div.mail-gency{
+	border:0px;
+}
+.header nav{
+padding: .5rem 1rem;
+background-color:#fff;
+}
+.header div.info{
+background-color: #1A1A1A;
+}
+.header nav button.navbar-toggler{
+	color: #fff;
+}
+.header nav button.navbar-toggler{
+color: #000;
+}
+.header nav div#navbarNavDropdown ul.navbar-nav{
+	background-color: #fff;
+	width:100%;
+	position: absolute;
+    z-index: 9999;
+    left:0;
+}
+.header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a{
+	color:#000;
+}
+.header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a.active{
+	color:#2A93C9;/*#fff;*/
+	border-bottom: 1px solid #000;
+}
+/******************slider*****************/
+main.index div#slider div.carousel-inner div.caption h1{
+    /*font-size: 38px;*/
+}
+/******************Research***********/
+main.index section#Research div.item{
+	margin-bottom: 25px;
+}
+/*****************about***************/
+main.index section#about {
+	min-height: auto;
+}
+main.index section#about  h1{
+	font-size: 26px;
+}
+main.index section#about  h3{
+text-align: center;
+font-size: 23px;
+}
+/*******************************/
+main.index div#latest-news {
+	padding: 40px 0 20px 0;
+}
+main.index div#latest-news a{
+font-size: 25px;
+}
+/*****************latest-news*******/
+main.index section.latest-news{
+	padding: 30px 0;
+}
+main.index section.latest-news div.item {
+	margin-bottom: 30px;
+}
+main.index section.latest-news div.item div.icon{
+	margin-bottom: 15px;
+}
+main.index section.latest-news div.item h5.new a{
+	font-size: 16px;
+}
+/*****************courses****************/
+main.index section#courses {
+	min-height:auto;
+}
+main.index section#courses div.item  blockquote{
+color: #2a93c9;
+font-size: 18px;
+margin-bottom: 20px;
+}
+/*****************our-team***********/
+main.index section.our-team div.item div.extra {
+    padding: 28px 22px 20px 22px;
+}
+
+/****************sponsers************/
+main.index section#sponsers div.item{
+	margin-bottom: 20px;
+}
+/***************footer***************/
+footer#footer div.footer-social form{
+	margin-bottom: 20px;
+}
+footer#footer div.footer-social text{
+	width: 75%;
+}
+footer#footer div.footer-social ul.social-menu{
+	text-align: center;
+}
+footer#footer div.copyright div.rights{
+	text-align: left;
+}
+/*****************general************/
+section{
+    padding: 60px 0;
+}
+}
+
+
+@media (max-width: 640px) { 
+main.index div#slider div.carousel-inner div.caption h1{
+    font-size: 38px;
+}
+main.index div#slider div.carousel-inner div.caption a{
+    min-width: 150px;
+    padding: 10px 23px;
+    font-size:13px;
+    margin-right: 11px;
+    font-weight: normal;
+}
+main.index div#slider div.carousel-inner div.caption p{
+font-size:23px;
+}
+/********************our-team*******************/
+main.index section.our-team div.extra p.name {
+	font-size: 18px;
+}
+/*******************courses******************/
+/*main.index div#coursestitle a{
+	font-size: 13px;
+}*/
+
+}
+
+
+/************************************************************************************************/
+/****************************************INSIDE PAGES********************************************/
+/************************************************************************************************/
+
+/**************************inside-header******************/
+header.inside-head{
+	position: relative;
+}
+ div.sub-nav{
+	color: #fff;
+	background-color: #56B0D2;
+	padding: 12px 0 10px;
+}
+ div.sub-nav ul{
+ 	margin: 0;
+}
+ div.sub-nav ul a{
+	color: #fff;
+	text-decoration: none;
+}
+/********************** OUR TEAM -INSIDE**********************/
+main.inside section.our-team div.item {
+	padding: 0 30px 0 0;
+	margin-bottom: 30px;
+}
+/********************** GENERAL-INSIDE**********************/
+
+ div.pager {
+	padding: 20px 0;
+}
+ div.pager a{
+text-decoration: none;
+display: block-inline;
+padding:  0 5px;
+color:#81868c;
+}
+ div.pager a.active{
+	color: #000;
+	font-weight: bold;
+}
+div.pager a :hover{
+}
+/********************************************************************************/
+main.inside section#Research div.item{
+	margin-bottom:30px;
+}
+/*********************************************BLOG-inside**************************************/
+div.blog{
+font-family: 'Raleway', sans-serif;
+}
+div.blog h3.cancer-title a{
+	margin-top: 50px;
+}
+div.blog div.title {
+	margin-bottom:  15px;
+	color: #3aa5a0;
+	font-size: 25px;
+}
+div.blog div.cancer-image{
+padding-bottom: 50%;
+}
+/*******************************************NEW**************************************/
+div.blog section#new{
+float: left; 
+padding-bottom: 55px;
+padding-top: 0px;
+}
+div.blog section#new div#view{
+border-bottom: 0;
+}
+div.blog section#new div.item{
+border-bottom: 1px solid  #000;
+padding-bottom: 45px;
+}
+div.blog section#new div.item div.title{
+	/*padding-bottom: 15px;*/
+}
+div.blog section#new div.item div.title a{
+font-size: 22px;
+text-decoration: none;
+color: #2A93C9;
+}
+div.blog section#new div.item div.title a:hover{
+color:#333333;
+}
+div.blog section#new div.item div.date{
+padding-bottom: 7px;
+font-size: 14px;
+color: #6F6F6F;
+}
+div.blog section#new div.item div.user{
+color: #6F6F6F;
+font-size: 14px;
+}
+
+div.blog section#new div.item div.description{
+font-size: 16px;	
+color:#9e9e9e;
+padding: 25px 0;
+}
+div.blog section#new div.pager a.active{
+	color: #000;
+	font-weight: bold;
+}
+div.blog section#new div.pager a :hover{
+}
+
+/***************************************latest-news************************************/
+main.inside section.latest-news div.item{
+	margin-bottom: 30px;
+}
+main.inside section.latest-news div.item div.cancer-image{
+	padding-bottom: 50%;
+}
+/*************************************latest-news -view *******************************/
+div.blog section#latest-news{
+float: right;
+padding-bottom: 55px;
+padding-top: 0px;
+}
+div.blog section#latest-news div.item{
+padding-bottom: 25px;
+}
+div.blog section#latest-news h1{
+	font-size: 25px;
+}
+div.blog section#latest-news h1 a{
+	color: #0f3b51;
+	text-decoration: none;
+	display: block;
+	margin-bottom: 25px;
+}
+div.blog section#latest-news div.description {
+padding: 15px 0 0 0;
+}
+div.blog section#latest-news div.description a{
+color: #0f3b51;
+text-decoration: none;	
+}
+div.blog section#latest-news div.description a:hover{
+	color: #2A93C9;
+}
+/***************************************page************************************/
+section.page div.p-image{
+	margin-bottom: 30px;
+	width: 35%;
+}
+section.page div.p-content{
+text-align: justify;
+color:#9e9e9e;
+}
+/***************************************MEDIA************************************/
+@media (max-width: 768px) {
+	main.inside section.our-team div.item {
+	padding: 0;
+}
+section.page div.p-image{
+	width: 100%;
+	}
+section.page div.p-content{
+/*text-align: left;*/
+}
+
+
