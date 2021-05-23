@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+/***************************************HEADER*********************************************/
+body{
+    font-family: 'Montserrat', sans-serif;
+	direction: rtl;
+}
+.header {
+	background: rgba(23, 49, 133,0.3);
+	position: absolute;
+	width: 100%;
+	z-index: 999999;
+	top:0;
+}
+
+/***************************************Research*********************************************/
+
+main.index section#Research div.item {
+  size: 100%;
+	overflow: hidden;
+	text-align: right;
+}
+main.index section#Research div.item  a{
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 11px;
+    text-decoration: none;
+}
+
+main.index section#Research div.item div.res-img{
+    size: 50%;
+    float: right;
+    text-decoration: none;
+	background-color: red;
+}
+main.index section#Research div.item div.res-title{
+    size: 50%;
+    float: left;
+	background-color: #3aa5a0;
+}
+main.index section#Research div.item  a:hover{
+color:#173185;
+}
+main.index section#Research div.item  p{
+	font-size: 13px;
+	color: #616870;
+}
+/***************************************courses****************************************/
+main.index div#coursestitle{
+	margin: auto;
+	padding :40px 0 0 0;	
+	margin-bottom: 40px;
+}
+main.index div#coursestitle a{
+	font-size: 24px;
+	text-decoration: none;
+	color: #333333;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif; 
+    border-bottom: 2px solid #2a93c9;
+    padding-bottom: 10px;
+}
+main.index section.courses div.item{
+margin-bottom: 20px;
+}
+
+main.index section.courses div.item div.icon  {
+overflow: hidden;
+}
+main.index section.courses div.item div.cancer-image  {
+	transition: 0.5s;
+	padding-bottom: 70%;
+}
+main.index section.courses div.item:hover div.cancer-image  {
+	  transform: scale(1.2); 
+}
+main.index section.courses div.item div.new {
+	background-color: #3aa5a0;
+	padding: 17px 15px;
+	max-height: 100px;
+
+}
+main.index section.courses div.item  a{
+    color: #fff;
+   text-decoration: none;
+   font-size: 16px;
+   display: block;
+}
+
+
+a.cancer-link:hover{
+    color:red;
+    background-color: #fff;
+    }
+    .cancer-title a{
+        text-decoration: none;
+        color: #333333;
+        text-transform: uppercase;
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        display: block;
+        margin-bottom: 33px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+    .cancer-title a:after{
+        content: ' ';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-bottom: 2px solid #3aa5a0;
+        width: 100%;
+        max-width: 67px;
+    }
+    h3.cancer-title {
+        text-align: right;
+    }
+    .cancer-image{
+    position: relative;width: 100%;padding-bottom: 100%;overflow: hidden;
+    }
+    .cancer-image img{
+        position: absolute; left: 50%;top: 50%; min-height: 100%; width: 100%;-webkit-transform: translate(-50%,-50%); -ms-transform: translate(-50%,-50%);
+              transform: translate(-50%,-50%);object-fit: cover;object-position: center;
+     }
+     section{
+        padding: 60px 0;
+     }
+     

@@ -3,16 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\Research;
+use LaravelLocalization;
 use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\models\Team;
 
 class home_controller extends Controller {
    public function index() {
-        $research = DB::table('research')->orderBy('id', 'desc')->simplePaginate(2);
-        $teams = DB::table('team')->orderBy('id', 'desc')->simplePaginate(6);
-      return view('welcome',['teams'=>$teams,'research'=>$research]);
+    $research = Research::select('id',
+    'image',
+    'file',
+    'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+    'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
+    )->orderBy('id', 'DESC')->paginate(2);
+    $teams = Team::select('id',
+    'image',
+    'telephone',
+    'email',
+    'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+    'specialization_' . LaravelLocalization::getCurrentLocale() . ' as specialization'
+    )->paginate(6);
+    return view('welcome',['teams'=>$teams,'research'=>$research]);
+   }
+
+   public function langs() {
+  //  return team::get();
+   return view('lang_test');
    }
 
      public function our_team() {
@@ -21,8 +39,14 @@ class home_controller extends Controller {
    }
  
      public function all_research() {
-        $research = DB::table('research')->orderBy('id', 'desc')->paginate(20);
-        return view('all_research',['research'=>$research]);
+
+        $research = Research::select('id',
+        'image',
+        'file',
+        'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+        'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
+          )->paginate(20);
+         return view('all_research',['research'=>$research]);
    }
  
     public function postRegister(Request $request) {
@@ -40,10 +64,22 @@ class home_controller extends Controller {
       $password = $request->password;
       echo 'Password: '.$password;
    }
-    public function view_research(Request $request, $id){
-        $single_research = DB::table('research')->where('id', '=', $id)->first();
-        $latest_research = DB::table('research')->orderBy('id', 'desc')->simplePaginate(4);
-        return view('view_research',['single_research'=>$single_research,'latest_research'=>$latest_research]);
+    public function view_research($id){
+    
+
+        $single_research = Research::find($id, ['image',
+        'created_at',
+        'file',
+        'name_'. LaravelLocalization::getCurrentLocale() . ' as name',
+        'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
+        ]);       
+         $latest_research = Research::select('id',
+        'image',
+        'file',
+        'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
+        'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
+        )->orderBy('id', 'DESC')->paginate(4);
+       return view('view_research',['single_research'=>$single_research,'latest_research'=>$latest_research]);
     }
 
 }

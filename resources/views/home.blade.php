@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    
+                        <a href="{{ url('/dashboard')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</
                 </div>
             </div>
         </div>

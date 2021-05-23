@@ -13,7 +13,7 @@ padding:250px 0;
 
 <div class="p">
 	
-    <h1 class="text-center">UNDER CONSTRUCTION</h1>
+    <h1 class="text-center">{{__('messages.under_const')}}</h1>
 
 </div>
 

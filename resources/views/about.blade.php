@@ -13,7 +13,7 @@
       <div class="row">
       <div class="p-image col-lg-4  col-md-5  col-sm-12 col-12">
        <div class="cancer-image">
-        <a href="#"><img src="{{ asset('/images/rnoo1.jpg ')}}"></a>
+        <a href="#"><img src="{{ asset('/images/front/rnoo1.jpg ')}}"></a>
        </div>
       </div>
       <div class="p-content  col-lg-8  col-md-7  col-sm-12  col-12">
@@ -37,7 +37,7 @@
     <!-- <i class='fa fa-rocket' style='font-size:36px'></i> -->
     <div  class="about-img" >
      <div class="cancer-image" >
-          <img src="{{ asset('/images/science-fiction.png') }}">
+          <img src="{{ asset('/images/front/science-fiction.png') }}">
       </div>  
     </div>  
       <h3>Mission</h3>
@@ -63,7 +63,7 @@
     <div class="col-lg-4 col-md-4 col-sm-12 col-12 ">
     <div  class="about-img" >
       	  	 <div class="cancer-image">
-          <img src="{{ asset('/images/eye.png') }}">
+          <img src="{{ asset('/images/front/eye.png') }}">
          </div>     
          </div>     
 
@@ -73,7 +73,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-12 ">
      <div  class="about-img" >
        <div class="cancer-image">
-         <img src="{{ asset('/images/mission.png') }}">
+         <img src="{{ asset('/images/front/mission.png') }}">
          </div>  
          </div>  
        <h3> goals</h3>

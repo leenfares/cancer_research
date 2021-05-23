@@ -575,6 +575,8 @@ font-size:23px;
 /********************our-team*******************/
 main.index section.our-team div.extra p.name {
 	font-size: 18px;
+	direction: ltr;
+
 }
 /*******************courses******************/
 /*main.index div#coursestitle a{
@@ -588,6 +590,9 @@ main.index section.our-team div.extra p.name {
 /****************************************INSIDE PAGES********************************************/
 /************************************************************************************************/
 
+main.inside{
+	padding-top: 50px;
+}
 /**************************inside-header******************/
 header.inside-head{
 	position: relative;
@@ -631,8 +636,10 @@ main.inside section#Research div.item{
 	margin-bottom:30px;
 }
 /*********************************************BLOG-inside**************************************/
-div.blog{
+ div.blog{
 font-family: 'Raleway', sans-serif;
+/* background-color: red;
+margin-bottom: 400px; */
 }
 div.blog h3.cancer-title a{
 	margin-top: 50px;

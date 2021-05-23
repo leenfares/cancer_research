@@ -18,19 +18,19 @@
                     </li>                                                                      
                     <li class="xn-title">Navigation</li>
                     <li>
-                        <a href="{{ url('/dashboard')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                        <a href="{{ url('/admin/panel')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
                     </li>        
                     <li>
-                        <a href="{{ url('/dashboard/add_team')}}"><span class="fa fa-users"></span> <span class="xn-text"> Team</span></a>
+                        <a href="{{ url('/admin/teams')}}"><span class="fa fa-users"></span> <span class="xn-text"> Team</span></a>
                     </li>   
                     <li>
-                        <a href="{{ url('/dashboard/add_research')}}"><span class="fa fa-university"></span> <span class="xn-text"> Research</span></a>
+                        <a href="{{ url('/admin/research')}}"><span class="fa fa-university"></span> <span class="xn-text"> Research</span></a>
                     </li>    
                    <li>
-                        <a href="{{ url('/dashboard/users')}}"><span class="fa fa-user"></span> <span class="xn-text">Users</span></a>
+                        <a href="{{ url('/admin/users')}}"><span class="fa fa-user"></span> <span class="xn-text">Users</span></a>
                     </li>    
                      <li>
-                        <a href="{{ url('/dashboard/roles')}}"><span class="fa fa-lock"></span> <span class="xn-text">Roles</span></a>
+                        <a href="{{ url('/admin/roles')}}"><span class="fa fa-lock"></span> <span class="xn-text">Roles</span></a>
                     </li>                                         
                 </ul>
             </div>

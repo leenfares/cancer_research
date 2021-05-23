@@ -16,19 +16,15 @@ use Illuminate\Support\Facades\Route;
 /************************************WELCOME****************************************/
 /***********************************************************************************/
 
-Route::get('/','home_controller@index');
 Route::get('/about', function() {
    return view('about');
  });
 Route::get('/test', function() {
-   return view('multipl_files');
+   return view('test');
  });
-Route::get('/under_construction', function() {
-   return view('under_cons');
-});
+
 Route::get('/our_team', 'home_controller@our_team');
-Route::get('/all_research', 'home_controller@all_research');
-Route::get('research/{id}','home_controller@view_research');
+// Route::get('/all_research', 'home_controller@all_research');
 
  
 
@@ -49,38 +45,57 @@ Auth::routes();
 /***********************************************************************************/
 
 
+
+/**** test */
+Route::group(
+   [
+      'prefix' => LaravelLocalization::setLocale(),
+      'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+   ], function(){ 
+      Route::get('/langs', 'home_controller@langs');
+      Route::get('/all_research', 'home_controller@all_research');
+      Route::get('/','home_controller@index');
+      Route::get('research/{id}','home_controller@view_research');
+      Route::get('/test', function() {
+         return view('test');
+       });
+      Route::get('/under_construction', function() {
+         return view('under_cons');
+      });
+   });
+
+
+/**** test */
 Route::get('/home', 'HomeController@index')->name('home');
 
-
 /***********************************************************************************/
 /**************************************ADMIN****************************************/
 /***********************************************************************************/
-Route::get('/dashboard', function() {
+
+
+/**************************************new****************************************/
+
+Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
+Route::get('/panel', function() {
    return view('layouts.admin');
-})->middleware('role:admin');
+});
+Route::get('/users', 'admin_controller@users');
+Route::get('/roles', 'admin_controller@roles');
+   Route::resources([
+      'teams' => 'Admin\TeamController',
+      'research' => 'Admin\ResearchController',
+      //'posts' => 'PostController'
+      ]);
+   Route::post('/teams/update', 'Admin\TeamController@update');
+   Route::get('/teams/{id}/delete', 'Admin\TeamController@destroy');
+   //////
+   Route::post('/research/update', 'Admin\ResearchController@update');
+   Route::get('/research/{id}/delete', 'Admin\ResearchController@destroy');
+   // Route::get('/creatroles', 'roleController@index');
+   // Route::get('/remove', 'admin_controller@removeImage');
+});
 
-///////////////////////////////////////*TEAM*///////////////////////////////////////
-Route::get('/dashboard/add_team', 'admin_controller@view_team')->middleware('role:admin');
-Route::post('/ad/add_team/', 'admin_controller@create_team' )->middleware('role:admin');
-Route::get('/dashboard/edit_team/{id}', 'admin_controller@edit_team')->middleware('role:admin');
-Route::post('/ed/edit_team/', 'admin_controller@update_team' )->middleware('role:admin');
-Route::get('/dashboard/delete_team/{id}','admin_controller@delete_t')->middleware('role:admin');
-
-//////////////////////////////////////*RESEARCH*////////////////////////////////////
-Route::get('/dashboard/add_research', 'admin_controller@view_research')->middleware('role:admin');
-Route::post('/ad/add_research/', 'admin_controller@create_research' )->middleware('role:admin');
-Route::get('/dashboard/edit_research/{id}', 'admin_controller@edit_research')->middleware('role:admin');
-Route::post('/ed/edit_research/', 'admin_controller@update_research' )->middleware('role:admin');
-Route::get('/dashboard/delete_research/{id}','admin_controller@delete_research')->middleware('role:admin');
 
 
-//////////////////////////////////////*USERS*//////////////////////////////////////
-Route::get('/dashboard/users', 'admin_controller@users')->middleware('role:admin');
-Route::get('/dashboard/roles', 'admin_controller@roles')->middleware('role:admin');
-Route::get('/creatroles', 'roleController@index');
-
-/***********************************************************************************/
-/**************************************ADMIN****************************************/
-/***********************************************************************************/
 
 

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Redirect;
 use DB;
 use DateTime;
 use function Sodium\add;
+use File;
+  
 
 class admin_controller extends Controller
 {
@@ -26,7 +28,7 @@ class admin_controller extends Controller
              if($files=$request->file('photo')){  
                 $image=$files->getClientOriginalName();  
                 $files->move('images',$image);   
-                $id = DB::table('team')->insertGetId(
+                $id = DB::table('teams')->insertGetId(
                 ['name' => $t_name,'email' => $email,'telephone'=>$telephone,'specialization'=>$specialization,'image' => $image]
                 );
               $message="One team member has been added";
@@ -41,7 +43,7 @@ class admin_controller extends Controller
 
 // 2 //
     public function view_team (Request $request){
-         $teams = DB::table('team')->orderBy('id', 'desc')->get();
+         $teams = DB::table('teams')->orderBy('id', 'desc')->get();
          return view('admin.create_team',['teams'=>$teams]);
      }
 
@@ -59,7 +61,7 @@ class admin_controller extends Controller
         $email=$request->input('email');
         $telephone=$request->input('telephone');
         $specialization=$request->input('specialization');
-        DB::table('team')->where('id', $id)->update(['name'=>$t_name,'email'=>$email,'specialization'=>$specialization,'telephone'=>$telephone]);
+        DB::table('teams')->where('id', $id)->update(['name'=>$t_name,'email'=>$email,'specialization'=>$specialization,'telephone'=>$telephone]);
         $message = "update has been done successfully";
          return Redirect::back()->with('message',$message);
     }
@@ -67,10 +69,16 @@ class admin_controller extends Controller
 // 5 //
     public function delete_t(Request $request,$id)
     {
-        /* $team= DB::table('team')->where('id', '=', $id)->first();
-         $image=$service->team;*/
-        DB::table('team')->where('id', '=', $id)->delete();
+        $team= DB::table('teams')->where('id', '=', $id)->first();
+        $image=$team->image;
         $message="This team member has been deleted";
+         if(File::exists(public_path('images/'. $image))){
+            File::delete(public_path('images/'. $image));
+        }
+        else{
+            $message="File does not exists";
+        }
+        DB::table('teams')->where('id', '=', $id)->delete();
         return Redirect::back()->with('message',$message);
     }
 
@@ -95,7 +103,7 @@ class admin_controller extends Controller
                 $files->move('files',$r_file);   
          
             }
-                $id = DB::table('research')->insertGetId(
+                $id = DB::table('researchs')->insertGetId(
                 ['s_name' => $s_name,'description'=>$description,'image' => $image,'file'=>$r_file]
                 );
 
@@ -109,7 +117,7 @@ class admin_controller extends Controller
     }
 // 2 //
      public function view_research (Request $request){
-         $research = DB::table('research')->orderBy('id', 'desc')->get();
+         $research = DB::table('researchs')->orderBy('id', 'desc')->get();
          return view('admin.create_research',['research'=>$research]);
      }
 // 3 //
@@ -123,15 +131,30 @@ class admin_controller extends Controller
         $id= $request->input('ids');
         $s_name= $request->input('s_name');
         $description= $request->input('description');
-        DB::table('research')->where('id', $id)->update(['s_name'=>$s_name,'description'=>$description]);
-        $message = "تupdate has been done successfully";
+        DB::table('researchs')->where('id', $id)->update(['s_name'=>$s_name,'description'=>$description]);
+        $message = "update has been done successfully";
          return Redirect::back()->with('message',$message);
     }
  // 5 //
     public function delete_research(Request $request,$id)
     {
-          DB::table('research')->where('id', '=', $id)->delete();
+        $research= DB::table('researchs')->where('id', '=', $id)->first();
+        $file_r=$research->file;
+        $image=$research->image;
         $message="This research has been deleted";
+         if(File::exists(public_path('images/'. $image))){
+            File::delete(public_path('images/'. $image));
+        }
+        else{
+            $message="File does not exists";
+        }
+
+         if(File::exists(public_path('files/'. $file_r))){
+            File::delete(public_path('files/'. $file_r));
+        }else{
+            $message="File does not exists";
+        }
+        DB::table('researchs')->where('id', '=', $id)->delete();
         return Redirect::back()->with('message',$message);
     }
 
@@ -151,7 +174,14 @@ class admin_controller extends Controller
          return view('admin.roles',['roles'=>$roles]);
     }
 
-
+   public function removeImage(Request $request)
+    {
+        if(File::exists(public_path('images/20180209_100756.jpg'))){
+            File::delete(public_path('images/20180209_100756.jpg'));
+        }else{
+            dd('File does not exists.');
+        }
+    }
 
 }
 

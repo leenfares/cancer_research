@@ -14,13 +14,13 @@ padding:250px 0;
 <main class="index inside">
  <section  id="Research">
   <div class="container">
-   <h3 class="cancer-title"> <a href="#">All Research</a></h3>
+   <h3 class="cancer-title"> <a href="#">{{__('messages.all_res')}}</a></h3>
    <div class="items row">
    @foreach($research as $r)
     <div class="col-lg-6 col-md-6 col-sm-12 col-12 item row">
       <div class="col-5 res-img">
        <div class="cancer-image">
-        <a href="{{url ('/research/'.$r->id)}}" ><img src=" {{ asset('/images/'.$r->image) }}"></a>
+        <a href="{{url ('/research/'.$r->id)}}" ><img src=" {{ asset('/images/research/'.$r->image) }}"></a>
        </div>
       </div>
          <div class="col-7 res-title">
