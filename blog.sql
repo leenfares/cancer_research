@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2020 at 12:13 PM
--- Server version: 10.4.11-MariaDB
+-- Generation Time: 24 مايو 2021 الساعة 11:22
+-- إصدار الخادم: 10.4.11-MariaDB
 -- PHP Version: 7.3.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forms`
+-- بنية الجدول `forms`
 --
 
 CREATE TABLE `forms` (
@@ -36,7 +36,7 @@ CREATE TABLE `forms` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `forms`
+-- إرجاع أو استيراد بيانات الجدول `forms`
 --
 
 INSERT INTO `forms` (`id`, `path`, `created_at`, `updated_at`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `forms` (`id`, `path`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- بنية الجدول `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -60,7 +60,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- إرجاع أو استيراد بيانات الجدول `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -73,7 +73,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `model_has_permissions`
+-- بنية الجدول `model_has_permissions`
 --
 
 CREATE TABLE `model_has_permissions` (
@@ -85,7 +85,7 @@ CREATE TABLE `model_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `model_has_roles`
+-- بنية الجدول `model_has_roles`
 --
 
 CREATE TABLE `model_has_roles` (
@@ -95,7 +95,7 @@ CREATE TABLE `model_has_roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `model_has_roles`
+-- إرجاع أو استيراد بيانات الجدول `model_has_roles`
 --
 
 INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `model_has_roles` (`role_id`, `model_type`, `model_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- بنية الجدول `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -116,7 +116,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `permissions`
+-- بنية الجدول `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -128,7 +128,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `permissions`
+-- إرجاع أو استيراد بيانات الجدول `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
@@ -137,28 +137,34 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 -- --------------------------------------------------------
 
 --
--- Table structure for table `research`
+-- بنية الجدول `researchs`
 --
 
-CREATE TABLE `research` (
+CREATE TABLE `researchs` (
   `id` int(11) NOT NULL,
-  `s_name` varchar(255) NOT NULL,
+  `name_en` varchar(255) NOT NULL DEFAULT 'anonymous',
+  `name_ar` varchar(255) NOT NULL DEFAULT 'مجهول',
   `image` varchar(255) NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `description` text NOT NULL
+  `description_en` text NOT NULL,
+  `description_ar` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `research`
+-- إرجاع أو استيراد بيانات الجدول `researchs`
 --
 
-INSERT INTO `research` (`id`, `s_name`, `image`, `file`, `description`) VALUES
-(2, 'research 1', 'IMG_0003.JPG', NULL, 'sss');
+INSERT INTO `researchs` (`id`, `name_en`, `name_ar`, `image`, `file`, `description_en`, `description_ar`, `created_at`, `updated_at`) VALUES
+(9, '\r\nhi', 'اهلا بكم', '1619123206.PNG', '1619123206.pdf', 'hhh', 'خخ', '2021-04-22 17:26:46', '2021-04-22 18:09:31'),
+(10, 'second', 'تاني', '1621244558.jpg', '1621244558.pdf', 'second second second second', 'تاني تاني   تاني تاني   تاني تاني', '2021-05-17 06:42:38', '2021-05-17 06:42:38'),
+(11, 'ndbfbhb', 'خخهخه', '1621244699.jpg', '1621244699.pdf', 'ndbfbhb', 'لللاش', '2021-05-17 06:44:59', '2021-05-17 06:44:59');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `roles`
+-- بنية الجدول `roles`
 --
 
 CREATE TABLE `roles` (
@@ -170,7 +176,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `roles`
+-- إرجاع أو استيراد بيانات الجدول `roles`
 --
 
 INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
@@ -180,7 +186,7 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_has_permissions`
+-- بنية الجدول `role_has_permissions`
 --
 
 CREATE TABLE `role_has_permissions` (
@@ -191,32 +197,38 @@ CREATE TABLE `role_has_permissions` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- بنية الجدول `teams`
 --
 
-CREATE TABLE `team` (
+CREATE TABLE `teams` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `telephone` bigint(25) NOT NULL,
-  `specialization` varchar(70) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `image` varchar(255) NOT NULL DEFAULT '	 person.png'
+  `name_en` varchar(50) NOT NULL DEFAULT 'anonymous',
+  `name_ar` varchar(50) NOT NULL DEFAULT 'anonymous',
+  `telephone` bigint(25) NOT NULL DEFAULT 0,
+  `specialization_en` varchar(70) NOT NULL DEFAULT 'doctor',
+  `specialization_ar` varchar(70) NOT NULL DEFAULT 'طبيب',
+  `email` varchar(50) DEFAULT 'a@aa.com',
+  `image` varchar(255) NOT NULL DEFAULT '	 person.png',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `team`
+-- إرجاع أو استيراد بيانات الجدول `teams`
 --
 
-INSERT INTO `team` (`id`, `name`, `telephone`, `specialization`, `email`, `image`) VALUES
-(2, ' Michael Georges', 933665488, 'Hematology/Oncology', 'aa@aa.com', 'person.png'),
-(3, 'Nader Abdullah', 993298686, 'Oncology', 'aa@aa.com', 'person.png'),
-(4, 'Ali Alloush', 991409499, 'Surgical Oncology', 'aa@aa.com', 'person.png'),
-(5, 'Youssef ZREIK', 992571025, 'Microbiologist/ Virologist ', 'aa@aa.com', 'youssef_zreik.jpg');
+INSERT INTO `teams` (`id`, `name_en`, `name_ar`, `telephone`, `specialization_en`, `specialization_ar`, `email`, `image`, `created_at`, `updated_at`) VALUES
+(3, 'Nader Abdullah', 'anonymous', 993298686, 'Oncology', 'طبيب', 'aa@aa.com', '1621671027.jpg', NULL, '2021-05-22 05:10:27'),
+(4, 'Ali Alloush', 'anonymous', 991409499, 'Surgical Oncology', 'طبيب', 'aa@aa.com', '1621669429.jpg', NULL, '2021-05-22 04:43:49'),
+(5, 'Youssef ZREIK', 'anonymous', 992571025, 'Microbiologist/ Virologist', 'طبيب', 'jjj@ww.nn', 'youssef_zreik.jpg', NULL, '2021-05-22 05:10:55'),
+(22, 'anonymous', 'anonymous', 8799, 'doctor', 'طبيب', 'v nnv', '1621667613.jpg', '2021-05-05 14:55:53', '2021-05-22 04:13:33'),
+(24, 'hhhh', 'تتتت', 5555, 'lkkkk', 'لااتات', 'hhhh@ss', '1621667530.jpg', '2021-05-22 04:12:10', '2021-05-22 04:12:10'),
+(25, 'hhhh', 'منمم', 5555, 'hhh', 'لاتلاتال', 'ddd@gg', '1621671141.jpg', '2021-05-22 05:12:21', '2021-05-22 05:12:21');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- بنية الجدول `users`
 --
 
 CREATE TABLE `users` (
@@ -231,7 +243,7 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- إرجاع أو استيراد بيانات الجدول `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -280,9 +292,9 @@ ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `research`
+-- Indexes for table `researchs`
 --
-ALTER TABLE `research`
+ALTER TABLE `researchs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -299,9 +311,9 @@ ALTER TABLE `role_has_permissions`
   ADD KEY `role_has_permissions_role_id_foreign` (`role_id`);
 
 --
--- Indexes for table `team`
+-- Indexes for table `teams`
 --
-ALTER TABLE `team`
+ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -333,10 +345,10 @@ ALTER TABLE `permissions`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `research`
+-- AUTO_INCREMENT for table `researchs`
 --
-ALTER TABLE `research`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `researchs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -345,10 +357,10 @@ ALTER TABLE `roles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `team`
+-- AUTO_INCREMENT for table `teams`
 --
-ALTER TABLE `team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `teams`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -357,23 +369,23 @@ ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- قيود الجداول المحفوظة
 --
 
 --
--- Constraints for table `model_has_permissions`
+-- القيود للجدول `model_has_permissions`
 --
 ALTER TABLE `model_has_permissions`
   ADD CONSTRAINT `model_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `model_has_roles`
+-- القيود للجدول `model_has_roles`
 --
 ALTER TABLE `model_has_roles`
   ADD CONSTRAINT `model_has_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `role_has_permissions`
+-- القيود للجدول `role_has_permissions`
 --
 ALTER TABLE `role_has_permissions`
   ADD CONSTRAINT `role_has_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE,
