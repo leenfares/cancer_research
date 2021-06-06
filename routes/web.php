@@ -12,26 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/***********************************************************************************/
-/************************************WELCOME****************************************/
-/***********************************************************************************/
-
-Route::get('/about', function() {
-   return view('about');
- });
-Route::get('/test', function() {
-   return view('test');
- });
-
-Route::get('/our_team', 'home_controller@our_team');
-// Route::get('/all_research', 'home_controller@all_research');
-
- 
-
-
-/***********************************************************************************/
-/************************************WELCOME****************************************/
-/***********************************************************************************/
 
 
 /***********************************************************************************/
@@ -52,21 +32,22 @@ Route::group(
       'prefix' => LaravelLocalization::setLocale(),
       'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
    ], function(){ 
-      Route::get('/langs', 'home_controller@langs');
-      Route::get('/all_research', 'home_controller@all_research');
-      Route::get('/','home_controller@index');
-      Route::get('research/{id}','home_controller@view_research');
-      Route::get('/test', function() {
-         return view('test');
-       });
+      Route::get('/all_research', 'front\home_controller@all_research');
+      Route::get('/all_partners','front\home_controller@all_partners');
+      Route::get('/all_teams', 'front\home_controller@all_teams');
+      Route::get('/','front\home_controller@index');
+      Route::get('research/{id}','front\home_controller@view_research');
       Route::get('/under_construction', function() {
-         return view('under_cons');
+         return view('front.under_cons');
       });
+      Route::get('/about', function() {
+         return view('front.about');
+       });
    });
 
 
 /**** test */
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'front\HomeController@index')->name('home');
 
 /***********************************************************************************/
 /**************************************ADMIN****************************************/
@@ -79,11 +60,12 @@ Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
 Route::get('/panel', function() {
    return view('layouts.admin');
 });
-Route::get('/users', 'admin_controller@users');
-Route::get('/roles', 'admin_controller@roles');
+Route::get('/users', 'front\admin_controller@users');
+Route::get('/roles', 'front\admin_controller@roles');
    Route::resources([
       'teams' => 'Admin\TeamController',
       'research' => 'Admin\ResearchController',
+      'partner' => 'Admin\PartnerController',
       //'posts' => 'PostController'
       ]);
    Route::post('/teams/update', 'Admin\TeamController@update');
@@ -91,6 +73,9 @@ Route::get('/roles', 'admin_controller@roles');
    //////
    Route::post('/research/update', 'Admin\ResearchController@update');
    Route::get('/research/{id}/delete', 'Admin\ResearchController@destroy');
+   ///
+   Route::post('/partner/update', 'Admin\PartnerController@update');
+   Route::get('/partner/{id}/delete', 'Admin\PartnerController@destroy');
    // Route::get('/creatroles', 'roleController@index');
    // Route::get('/remove', 'admin_controller@removeImage');
 });

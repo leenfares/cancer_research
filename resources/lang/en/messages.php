@@ -24,6 +24,8 @@ return [
     "nav_news"=>'News',
     "nav_courses"=>'courses',
     "nav_research"=>'Research',
+    "nav_team"=>'Team',
+    "nav_partner"=>'Partners',
     "nav_contact"=>'Contact',
     "nav_donate"=> 'Donation',
     "slider_h"=>'Cancer Research Center',
@@ -44,10 +46,7 @@ return [
     "foot_rights"=>'All rights reserved.',
     "foot_terms"=>'Terms and Conditions',
     "foot_privacy"=>'Privacy Policy',
-
-
-
-
+    "langs"=>'langs',
     "about"=>'    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 
 

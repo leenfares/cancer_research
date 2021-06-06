@@ -58,7 +58,7 @@
                                         <label class="col-md-3 col-xs-12 control-label">Description in En</label>
                                         <div class="col-md-6 col-12">                                            
                                             <textarea class="form-control"  name="description_en" rows="5">  </textarea>
-                                            <span class="help-block">Edit research's description </span>
+                                            <span class="help-block"> research's description </span>
                                             @error('description_en')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                             @enderror
@@ -68,7 +68,7 @@
                                         <label class="col-md-3 col-xs-12 control-label">Description in Ar</label>
                                         <div class="col-md-6 col-12">                                            
                                             <textarea class="form-control"  name="description_ar" rows="5">  </textarea>
-                                            <span class="help-block">Edit research's description </span>
+                                            <span class="help-block"> research's description </span>
                                             @error('description_ar')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                             @enderror
@@ -153,7 +153,7 @@
                                 </td>
                                  <td class="edit">
                                     <a href="{{url('admin/research').'/'.$r->id.'/edit'}}"> <span class="fa fa-edit"></span></a>
-                                    <a href="{{url('admin/research').'/'.$r->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this research? ')"> <span class="fa fa-trash-o"></span></a>
+                                    <a href="{{url('admin/research').'/'.$r->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this research? ')"> <span class="fas fa-trash-alt"></span></a>
                                 </td>
                             </tr>
                     @endforeach

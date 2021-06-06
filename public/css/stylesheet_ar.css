@@ -54,10 +54,14 @@ body{
 	display: block;
 	margin-right: 11px;
 }
+.header nav.main{
+	padding: 5rem 1rem;
+}
 .header nav{
 padding: 2rem 1rem;
 direction: ltr;
 }
+
 .header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a{
 	color: #fff;
 	font-size:18px;
@@ -74,6 +78,12 @@ border-bottom: 1px solid #fff;
 .header nav div#navbarNavDropdown ul.navbar-nav li.nav-item a.active{
 border-bottom: 1px solid #fff;
 color: #3aa5a0;/*blue*/
+}
+.header nav div#navbarNavDropdown .dropdown-menu a  {
+color: #3d3d3d !important;
+}
+.header nav div#navbarNavDropdown .dropdown-item{
+width:88%;
 }
 
 /***************************************SLIDER*********************************************/
@@ -308,8 +318,13 @@ main.index section.our-team div.item div.extra ul.dr-info a:hover{
 main.index section#sponsers{
 padding-top:0;
 }
-main.index section#sponsers div.cancer-image{
-	padding-bottom: 50%;
+main.index section#sponsers div.item div.new {
+	background-color: #3aa5a0;
+	padding: 17px 15px;
+	max-height: 100px;
+	text-align: right;
+	color: #fff;
+	font-size: 16px;
 }
 /***************************************footer*******************************************/
 footer#footer{

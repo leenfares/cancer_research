@@ -36,7 +36,7 @@
                                 </div>
                    
                                 <div class="panel-body">            
-                                        <a href="{{url('admin/teams').'/'.$team->id.'/delete'}} " style="font-size:25px" onclick="return confirm( 'Are you sure that you want to delete this member? ')"> <span class="fa fa-trash-o"></span></a>
+                                        <a href="{{url('admin/teams').'/'.$team->id.'/delete'}} " style="font-size:25px" onclick="return confirm( 'Are you sure that you want to delete this member? ')"> <span class="fas fa-trash-alt"></span></a>
                                     <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Name in En</label>
                                         <div class="col-md-6 col-12">                                            

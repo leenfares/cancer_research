@@ -182,7 +182,7 @@
                                 </td>
                                  <td class="edit">
                                     <a href="{{url('admin/teams').'/'.$t->id.'/edit'}}"> <span class="fa fa-edit"></span></a>
-                                    <a href="{{url('admin/teams').'/'.$t->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this member? ')"> <span class="fa fa-trash-o"></span></a>
+                                    <a href="{{url('admin/teams').'/'.$t->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this member? ')"> <span class="fas fa-trash-alt"></span></a>
                                 </td>
                             </tr>
                     @endforeach

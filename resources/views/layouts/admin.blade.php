@@ -7,8 +7,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />   
        <link rel="stylesheet"  type="text/css" id="theme" href=" {{ url('/admin/css/theme-default.css') }}" >
+       <link rel="stylesheet" href="{{ url('/fontawesome/css/all.css')}}">
        </head>
        <body>
+       
         <div class="page-container">
             <div class="page-sidebar">
                 <ul class="x-navigation">
@@ -24,7 +26,10 @@
                         <a href="{{ url('/admin/teams')}}"><span class="fa fa-users"></span> <span class="xn-text"> Team</span></a>
                     </li>   
                     <li>
-                        <a href="{{ url('/admin/research')}}"><span class="fa fa-university"></span> <span class="xn-text"> Research</span></a>
+                    <a href="{{ url('/admin/research')}}"><span class="fa fa-university"></span> <span class="xn-text"> Research</span></a>
+                    </li> 
+                    <li>
+                  <a href="{{ url('/admin/partner')}}"> <span class="fa fa-handshake"></span> <span class="xn-text"> Partner</span></a>
                     </li>    
                    <li>
                         <a href="{{ url('/admin/users')}}"><span class="fa fa-user"></span> <span class="xn-text">Users</span></a>
@@ -42,15 +47,7 @@
                         <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>                  
                 </ul>
-         <!--         <ul class="breadcrumb">
-                    <li><a href="#">Link</a></li>                    
-                    <li class="active">Active</li>
-                </ul> -->
-
                 @yield('content')
-
-
-
             </div>            
         </div>
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
