@@ -45,7 +45,9 @@ Route::group(
        });
    });
 
-
+   Route::get('/test', function() {
+      return view('auth.logg');
+    });
 /**** test */
 Route::get('/home', 'front\HomeController@index')->name('home');
 
