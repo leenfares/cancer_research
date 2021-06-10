@@ -31,8 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `partners` (
   `id` int(50) NOT NULL,
   `image` varchar(50) NOT NULL,
-  `description_en` text DEFAULT 'description',
-  `description_ar` text DEFAULT '\'توصيف\'',
+  `description_en` text,
+  `description_ar` text,
   `url` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
