@@ -1,11 +1,6 @@
-
-
 @extends('layouts.master')
 @section('title', 'About')
 @section('content')
-
-
-
 <main class="index inside">
   <section class="page">
   <div class="container">
