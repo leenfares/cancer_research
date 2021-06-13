@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\models\Role;
+use App\User;
 use App\Http\Controllers\Controller;
 
 
@@ -86,6 +87,11 @@ class RoleController extends Controller
     {
         //
     }
+
+    // public function assign()
+    // {
+    //     $user=User::where('name','doaa') -> first();
+    //     $user->assignRole('admin');
+    //     return "hi";
+    // }
 }
-// auth()->user()->assignRole('writer');
-// return view('roles');
