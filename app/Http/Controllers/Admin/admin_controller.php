@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use DB;
 use DateTime;
 use function Sodium\add;
 use File;
+use App\Http\Controllers\Controller;
   
 
 class admin_controller extends Controller

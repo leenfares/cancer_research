@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\front;
+namespace App\Http\Controllers\Admin;
+
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use App\models\Role;
 use App\Http\Controllers\Controller;
 
-class roleController extends Controller
+
+
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +17,8 @@ class roleController extends Controller
      */
     public function index()
     {
-        // Role::create(['name' => 'admin']);
-        auth()->user()->assignRole('writer');
-        return view('roles');
+        $roles=Role::get();
+        return view('admin.Role.roles',['roles'=>$roles]);
     }
 
     /**
@@ -24,8 +26,6 @@ class roleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-
     public function create()
     {
         //

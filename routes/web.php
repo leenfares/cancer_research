@@ -60,12 +60,13 @@ Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
 Route::get('/panel', function() {
    return view('layouts.admin');
 });
-Route::get('/users', 'front\admin_controller@users');
-Route::get('/roles', 'front\admin_controller@roles');
+Route::get('/users', 'Admin\admin_controller@users');
+// Route::get('/roles', 'Admin\admin_controller@roles');
    Route::resources([
       'teams' => 'Admin\TeamController',
       'research' => 'Admin\ResearchController',
       'partner' => 'Admin\PartnerController',
+      'roles' => 'Admin\RoleController',
       //'posts' => 'PostController'
       ]);
    Route::post('/teams/update', 'Admin\TeamController@update');
