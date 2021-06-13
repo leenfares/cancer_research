@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\models\Role;
+use App\User;
 use App\Http\Controllers\Controller;
 
-
-
-class RoleController extends Controller
+class UserContoller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles=Role::get();
-        return view('admin.Role.all',['roles'=>$roles]);
+        $users=User::get();
+        return view('admin.User.all',['users'=>$users]);   //
     }
 
     /**
@@ -87,5 +85,3 @@ class RoleController extends Controller
         //
     }
 }
-// auth()->user()->assignRole('writer');
-// return view('roles');
