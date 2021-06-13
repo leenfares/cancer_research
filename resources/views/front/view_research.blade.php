@@ -19,25 +19,19 @@ padding:250px 0;
             <div class="title">
               {{$single_research->name}}
             </div>
-            <!-- <div class="row">
-              <div class="date col-5">
-                <span class="fa fa-calendar"></span>
-                <span>&nbsp;{{$single_research->created_at}}</span> 
-              </div>
-              <div class="user col-7">
-                <span class="fa fa-user"></span>
-                <span>&nbsp; demo user</span> 
-              </div>
-            </div> -->
-            <div class="cancer-image">
+            <!-- <div class="cancer-image">
               <img src=" {{ asset('/images/research/'.$single_research->image) }}">
-            </div>
+            </div> -->
+
+            <object data="{{asset('/files/research/'.$single_research->file)}}" type="application/pdf" width="100%" height="500px">
+                <p>Alternative text - include a link <a href=" {{ asset('/files/research/'.$single_research->file) }}" >to the PDF!</a></p>
+            </object>
             <div class="description">
               {{$single_research->description}}
             </div>
-           <div class="r_file">
+           <!-- <div class="r_file">
               <a href=" {{ url('/files/research/'.$single_research->file) }}"><i class='fa fa-file'></i> Research Abstract</a>
-            </div>
+            </div> -->
       </div>
       </section>
       <section id="latest-news" class="col-lg-3 col-md-3 col-sm-12 col-12" >

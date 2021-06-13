@@ -688,7 +688,7 @@ padding-bottom: 50%;
 }
 /*******************************************NEW**************************************/
 div.blog section#new{
-float: left; 
+float: right; 
 padding-bottom: 55px;
 padding-top: 0px;
 }
@@ -742,7 +742,7 @@ main.inside section.latest-news div.item div.cancer-image{
 }
 /*************************************latest-news -view *******************************/
 div.blog section#latest-news{
-float: right;
+float: left;
 padding-bottom: 55px;
 padding-top: 0px;
 }
