@@ -2,6 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
   <head>
+  {!! SEOMeta::generate() !!}
+    {!! OpenGraph::generate() !!}
+    {!! Twitter::generate() !!}
+    {!! JsonLd::generate() !!}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href=" {{ url('/css/bootstrap/bootstrap.min.css') }}" >
@@ -12,7 +16,6 @@
     <link rel="stylesheet" href=" {{ url('/css/stylesheet.css') }}">
     @endif
     <link rel="icon" href=" {{ url('/images/front/Logo-sq.png') }}"  type="image/front/gif" sizes="16x16">
-      <title>  Cancer Research Center</title>
   </head>
 
     
@@ -201,7 +204,7 @@
       </div>
          <div class="col-7 res-title">
       <h5  class="title"><a href="{{url ('/research/'.$r->id)}}" > 
-        {{ $r->description }}
+        {{ $r->limit($r->description)}}
         </a></h5>
     </div>
     </div>

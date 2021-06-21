@@ -81,6 +81,7 @@ Route::get('/panel', function() {
    // Route::get('/remove', 'admin_controller@removeImage');
 });
 
+Route::get('/test', 'testController@index');
 
 
 
