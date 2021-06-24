@@ -20,20 +20,20 @@ use Artesaos\SEOTools\Facades\SEOTools;
 class home_controller extends Controller {
    public function index() {
     SEOMeta::setTitle('Cancer Research Center');
-    SEOMeta::setDescription('This is my page description');
-    SEOMeta::setCanonical('https://codecasts.com.br/lesson');
+    SEOMeta::setDescription('The adoption of a cancer research center at Tishreen University will be a very important step in the history of the university because we will take the decision to challenge the tragedy caused by a disease that is said to be the emperor of all diseases');
+    SEOMeta::setCanonical('http://crc.tishreen.edu.sy/');
 
     OpenGraph::setDescription('This is my page description');
     OpenGraph::setTitle('Home');
-    OpenGraph::setUrl('http://current.url.com');
+    OpenGraph::setUrl('http://crc.tishreen.edu.sy/');
     OpenGraph::addProperty('type', 'articles');
 
     TwitterCard::setTitle('Homepage');
     TwitterCard::setSite('@LuizVinicius73');
 
     JsonLd::setTitle('Homepage');
-    JsonLd::setDescription('This is my page description');
-    JsonLd::addImage('https://codecasts.com.br/img/logo.jpg');
+    // JsonLd::setDescription('This is my page description');
+    // JsonLd::addImage('https://codecasts.com.br/img/logo.jpg');
     
     $research = Research::select('id',
     'image',
@@ -68,6 +68,16 @@ class home_controller extends Controller {
    }
  
      public function all_research() {
+      SEOMeta::setTitle('research');
+      SEOMeta::setDescription('The adoption of a cancer research center at Tishreen University will be a very important step in the history of the university because we will take the decision to challenge the tragedy caused by a disease that is said to be the emperor of all diseases');
+      SEOMeta::setCanonical('http://crc.tishreen.edu.sy/');
+      OpenGraph::setDescription('This is my page description');
+      OpenGraph::setTitle('Home');
+      OpenGraph::setUrl('http://crc.tishreen.edu.sy/');
+      OpenGraph::addProperty('type', 'articles');
+      TwitterCard::setTitle('Homepage');
+      TwitterCard::setSite('@LuizVinicius73');
+      JsonLd::setTitle('Homepage');
         $research = Research::select('id',
         'image',
         'file',

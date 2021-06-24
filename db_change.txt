@@ -1,0 +1,1 @@
+ALTER TABLE `researchs` ADD `meta_kw` TEXT NOT NULL AFTER `description_ar`, ADD `meta_desc` TEXT NOT NULL AFTER `meta_kw`;

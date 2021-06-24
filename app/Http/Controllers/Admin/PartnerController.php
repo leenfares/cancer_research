@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Traits\FileTrait;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -43,6 +44,13 @@ class PartnerController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = $this->getRules();
+        $messages = $this->getMessages();
+        $validator = Validator::make($request->all() ,$rules, $messages);
+        if ($validator->fails()) {
+           return redirect()->back()->withErrors($validator)->withInputs($request->all());
+        }
+
         $image = $this->saveFile($request->photo, 'images/partners');
         Partner::create([
             'description_en' =>   $request->description_en,
@@ -120,5 +128,25 @@ class PartnerController extends Controller
         }
         $partner->delete();  
         return redirect('admin/partner')->with(['success'=>'deleting has been done successfully']);  
+    }
+
+    protected function getMessages()
+    {
+
+        return $messages = [
+            'description_en.required' =>'السعر مطلوب',
+            'description_ar.required' => 'السعر مطلوب',
+            'url.required' => 'ألتفاصيل مطلوبة ',
+        ];
+    }
+
+    protected function getRules()
+    {
+
+        return $rules = [
+            'description_ar' => 'required',
+            'description_en' => 'required',
+            'url' => 'required',
+        ];
     }
 }

@@ -8,6 +8,16 @@
        <strong>success!</strong>  {{ session()->get('success') }}
     </div>
 @elseif (session()->has('fail'))
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <div class="alert alert-danger">
        <strong>fail!</strong>  {{ session()->get('fail') }}
     </div>
@@ -54,8 +64,19 @@
                                             @enderror
                                         </div>
                                     </div>
+                      
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Description in En</label>
+                                        <label class="col-md-3 col-12 control-label">Description in Ar</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="description_ar" rows="5">  </textarea>
+                                            <span class="help-block"> research's description </span>
+                                            @error('description_ar')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Description in En</label>
                                         <div class="col-md-6 col-12">                                            
                                             <textarea class="form-control"  name="description_en" rows="5">  </textarea>
                                             <span class="help-block"> research's description </span>
@@ -65,16 +86,25 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Description in Ar</label>
+                                        <label class="col-md-3 col-12 control-label">Meta Description</label>
                                         <div class="col-md-6 col-12">                                            
-                                            <textarea class="form-control"  name="description_ar" rows="5">  </textarea>
-                                            <span class="help-block"> research's description </span>
-                                            @error('description_ar')
+                                            <textarea class="form-control"  name="meta_desc" rows="5">  </textarea>
+                                            <span class="help-block"> Meta description </span>
+                                            @error('meta_desc')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                             @enderror
                                         </div>
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Keywords</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_kw" rows="5">  </textarea>
+                                            <span class="help-block"> Meta Keywords </span>
+                                            @error('meta_kw')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Image</label>
                                         <div class="col-md-6 col-12">                                                                                                                                        
@@ -95,8 +125,6 @@
                                               @enderror
                                         </div>
                                     </div>
-                
-
                                 </div>
                                 <div class="panel-footer " style="text-align: center;">                                  
                                     <button class="btn btn-primary ">Submit</button>

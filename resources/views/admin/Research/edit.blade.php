@@ -11,16 +11,6 @@
        <strong>fail!</strong>  {{ session()->get('fail') }}
     </div>
 @endif
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 
      <div class="page-content-wrap">
             <div class="row">
@@ -87,6 +77,26 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Description</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_desc" rows="5">{{$research->meta_desc}}   </textarea>
+                                            <span class="help-block"> Meta Description </span>
+                                            @error('meta_desc')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Keywords</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_kw" rows="5"> {{$research->meta_kw}} </textarea>
+                                            <span class="help-block">Meta Keywords </span>
+                                            @error('meta_kw')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Image</label>
                                         <div class="col-md-6 col-12">                                                                                                                                        
                                             <input type="file" class="fileinput btn-primary" name="photo_up" id="photo_up" title="Browse image"/>
@@ -101,6 +111,9 @@
                                                 <span class="help-block">Current Personal image</span>
                                                 <input type="hidden" name="photo"  value="{{$research->image}}">
                                                 <a href="#"><img src=" {{ asset('/images/research/'.$research->image) }}"></a>
+                                                @error('photo')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -112,6 +125,9 @@
                                             <span class="help-block"> 
                                             <small class="form-text text-danger">hint!!</small>  New file will replace the old one</span>
                                         </div>
+                                        @error('s_file')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                        @enderror
                                     </div>
                                 <div class="form-group">
                                     <label class="col-md-3 col-12 control-label">Current File</label>

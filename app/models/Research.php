@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 class Research extends Model
 {
     protected $table = 'researchs';
-    protected $fillable = ['name_en', 'name_ar','description_en', 'description_ar', 'image','file'];
+    protected $fillable = ['name_en', 'name_ar','description_en', 'description_ar','meta_desc','meta_kw','image','file'];
  
     public function limit($description)
     {

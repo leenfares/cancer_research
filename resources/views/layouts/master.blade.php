@@ -4,10 +4,7 @@
 
 
   <head>
-     {!! SEOMeta::generate() !!}
-    {!! OpenGraph::generate() !!}
-    {!! Twitter::generate() !!}
-    {!! JsonLd::generate() !!}
+    @yield('meta_tags')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href=" {{ url('/css/bootstrap/bootstrap.min.css') }}" >
@@ -18,7 +15,7 @@
     <link rel="stylesheet" href=" {{ url('/css/stylesheet.css') }}">
     @endif
     <link rel="icon" href=" {{ url('/images/front/Logo-sq.png') }}"  type="image/gif" sizes="16x16">
-      <title>  @yield('title')</title>
+    <!-- <title>  @yield('title')</title> -->
     </head>
   <body>
 
@@ -55,21 +52,6 @@
  </div>
  @include('layouts.nav')
   </header>
-
-<!-- 
-
-<div class="sub-nav">
-  <div class="container">
-      <ul class="social-menu list-inline">
-         <li class="list-inline-item"> <a href="index.html"> Home</a></li><span>/</span>
-         <li class="list-inline-item"> <a href="index.html"> About</a></li>
-      </ul>   
-</div>
-</div> -->
-
-
-
-
 
 @yield('content')
 
