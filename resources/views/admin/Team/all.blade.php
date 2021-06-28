@@ -91,7 +91,7 @@
                                             <span class="help-block">Enter member's email</span>
                                             @error('email')
                                                 <small class="form-text text-danger">{{$message}}</small>
-                                              @enderror
+                                            @enderror
                                         </div>
                                     </div>
                                       <div class="form-group">
@@ -106,6 +106,26 @@
                                             @error('telephone')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                               @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Description</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_desc" rows="5">  </textarea>
+                                            <span class="help-block"> Meta description </span>
+                                            @error('meta_desc')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Keywords</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_kw" rows="5">  </textarea>
+                                            <span class="help-block"> Meta Keywords </span>
+                                            @error('meta_kw')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="form-group">

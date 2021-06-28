@@ -11,15 +11,7 @@
        <strong>fail!</strong>  {{ session()->get('fail') }}
     </div>
 @endif
-@if (count($errors) > 0)
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+
 
 
      <div class="page-content-wrap">
@@ -119,7 +111,26 @@
                                             @enderror
                                         </div>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Description</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_desc" rows="5">  </textarea>
+                                            <span class="help-block"> Meta description </span>
+                                            @error('meta_desc')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Meta Keywords</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <textarea class="form-control"  name="meta_kw" rows="5">  </textarea>
+                                            <span class="help-block"> Meta Keywords </span>
+                                            @error('meta_kw')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Image</label>
                                         <div class="col-md-6 col-12">                                                                                                                                        
@@ -135,6 +146,9 @@
                                                 <span class="help-block">Current Personal image</span>
                                                 <input type="hidden" name="photo"  value="{{$team->image}}">
                                                 <a href="#"><img src=" {{ asset('/images/teams/'.$team->image) }}"></a>
+                                                @error('photo')
+                                                <small class="form-text text-danger">{{$message}}</small>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>

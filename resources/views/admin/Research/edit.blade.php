@@ -108,7 +108,7 @@
                                         <label class="col-md-3 col-12 control-label">Current Image</label>
                                         <div class="col-md-6 col-12"> 
                                             <div class="cancer-image">
-                                                <span class="help-block">Current Personal image</span>
+                                                <span class="help-block">Current Research image</span>
                                                 <input type="hidden" name="photo"  value="{{$research->image}}">
                                                 <a href="#"><img src=" {{ asset('/images/research/'.$research->image) }}"></a>
                                                 @error('photo')

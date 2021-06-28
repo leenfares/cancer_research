@@ -135,9 +135,9 @@ class ResearchController extends Controller
     {
         return  [
             'name_en.required' => 'Name is required',
-            'name_en.max' => 'Name length dose not be more than 250',
+            'name_en.max' => 'Name length does not be more than 250',
             'name_ar.required' => 'Name is required',
-            'name_ar.max' => 'Name length dose not be more than 250',
+            'name_ar.max' => 'Name length does not be more than 250',
             'description_en.required' => 'Description is required',
             'description_ar.required' => 'Description is required',
             'photo.required' => 'Photo is required',
@@ -145,13 +145,28 @@ class ResearchController extends Controller
             's_file.required'=>'File is not valid',
             's_file.mimes' =>  'Only pdf files are allowable',
             'meta_desc.required'=>'Meta description is required',
-            'meta_desc.max'=>'Meta description length dose not be more than 150',
+            'meta_desc.max'=>'Meta description length does not be more than 150',
             'meta_kw.required'=>'Meta keywords is required',
         ];
     }
     public function updateRules()
     {
         return  [
+            'name_en' => 'required|max:250',
+            'name_ar' => 'required|max:250',
+            'description_en' => 'required',
+            'description_ar' => 'required',
+            'photo' => 'mimes:png,jpg,jpeg',
+            's_file'=>'mimes:pdf',
+            'meta_desc'=>'required|max:150',
+            'meta_kw'=>'required',
+        
+
+        ];
+    }
+    public function updateMessages()
+    {
+        return [
             'name_en.required' => 'Name is required',
             'name_en.max' => 'Name length dose not be more than 250',
             'name_ar.required' => 'Name is required',
@@ -163,20 +178,6 @@ class ResearchController extends Controller
             'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length dose not be more than 150',
             'meta_kw.required'=>'Meta keywords is required',
-
-        ];
-    }
-    public function updateMessages()
-    {
-        return [
-            'name_en' => 'required|max:250',
-            'name_ar' => 'required|max:250',
-            'description_en' => 'required',
-            'description_ar' => 'required',
-            'photo' => 'mimes:png,jpg,jpeg',
-            's_file'=>'mimes:pdf',
-            'meta_desc'=>'required|max:150',
-            'meta_kw'=>'required',
         ];
     }
 }
