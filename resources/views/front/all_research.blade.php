@@ -7,13 +7,6 @@ padding:250px 0;
 
 </style>
 @extends('layouts.master')
-@section('meta_tags')
-<!-- @section('title', 'Research') -->
-{!! SEOMeta::generate() !!}
-{!! OpenGraph::generate() !!}
-{!! Twitter::generate() !!}
-{!! JsonLd::generate() !!}
-@endsection
 
 @section('content')
 <main class="index inside">

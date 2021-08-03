@@ -67,17 +67,17 @@ class home_controller extends Controller {
        return view('front.all_teams',['teams'=>$teams]);
    }
  
-     public function all_research() {
-      SEOMeta::setTitle('research');
+     public function all_research() {      
+      SEOMeta::setTitle( __('messages.latest_res'));
       SEOMeta::setDescription('The adoption of a cancer research center at Tishreen University will be a very important step in the history of the university because we will take the decision to challenge the tragedy caused by a disease that is said to be the emperor of all diseases');
-      SEOMeta::setCanonical('http://crc.tishreen.edu.sy/');
-      OpenGraph::setDescription('This is my page description');
-      OpenGraph::setTitle('Home');
-      OpenGraph::setUrl('http://crc.tishreen.edu.sy/');
+      SEOMeta::setCanonical('http://crc.tishreen.edu.sy/all_research');
+      OpenGraph::setDescription( __('messages.latest_res'));
+      OpenGraph::setTitle(__('messages.latest_res'));
+      OpenGraph::setUrl('http://crc.tishreen.edu.sy/all_research');
       OpenGraph::addProperty('type', 'articles');
-      TwitterCard::setTitle('Homepage');
+      TwitterCard::setTitle(__('messages.latest_res'));
       TwitterCard::setSite('@LuizVinicius73');
-      JsonLd::setTitle('Homepage');
+      JsonLd::setTitle(__('messages.latest_res'));
         $research = Research::select('id',
         'image',
         'file',
@@ -88,6 +88,16 @@ class home_controller extends Controller {
    }
 
      public function all_partners() {
+      SEOMeta::setTitle( __('messages.our_par'));
+      SEOMeta::setDescription('The adoption of a cancer research center at Tishreen University will be a very important step in the history of the university because we will take the decision to challenge the tragedy caused by a disease that is said to be the emperor of all diseases');
+      SEOMeta::setCanonical('http://crc.tishreen.edu.sy/all_partners');
+      OpenGraph::setDescription( __('messages.our_par'));
+      OpenGraph::setTitle(__('messages.latest_res'));
+      OpenGraph::setUrl('http://crc.tishreen.edu.sy/all_partners');
+      OpenGraph::addProperty('type', 'articles');
+      TwitterCard::setTitle(__('messages.our_par'));
+      TwitterCard::setSite('@LuizVinicius73');
+      JsonLd::setTitle(__('messages.our_par'));
         $partner = Partner::select('id',
         'image',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
@@ -114,9 +124,24 @@ class home_controller extends Controller {
         $single_research = Research::find($id, ['image',
         'created_at',
         'file',
+        'id',
+        'meta_desc',
+        'meta_kw',
         'name_'. LaravelLocalization::getCurrentLocale() . ' as name',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
         ]);       
+        SEOMeta::setTitle($single_research->name); 
+        SEOMeta::setDescription($single_research->meta_desc);
+        SEOMeta::setKeywords($single_research->meta_kw);
+        SEOMeta::setCanonical('http://crc.tishreen.edu.sy/'.LaravelLocalization::getCurrentLocale().'/research/'.$single_research->id);
+        OpenGraph::setDescription($single_research->meta_desc);
+        OpenGraph::setTitle(__('messages.latest_res'));
+        OpenGraph::setUrl('http://crc.tishreen.edu.sy/'.LaravelLocalization::getCurrentLocale().'/research/'.$single_research->id);
+        OpenGraph::addProperty('type', 'articles');
+        TwitterCard::setTitle(__('messages.our_par'));
+        TwitterCard::setSite('@LuizVinicius73');
+        JsonLd::setTitle(__('messages.our_par'));
+
          $latest_research = Research::select('id',
         'image',
         'file',
