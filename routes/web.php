@@ -55,12 +55,11 @@ Route::get('/home', 'front\HomeController@index')->name('home');
 
 
 /**************************************new****************************************/
-
+Route::get('/assign', 'Admin\RoleController@assign');
 Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
 Route::get('/panel', function() {
    return view('layouts.admin');
 });
-// Route::get('/assign', 'Admin\RoleController@assign');
    Route::resources([
       'teams' => 'Admin\TeamController',
       'research' => 'Admin\ResearchController',

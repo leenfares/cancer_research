@@ -88,10 +88,10 @@ class RoleController extends Controller
         //
     }
 
-    // public function assign()
-    // {
-    //     $user=User::where('name','doaa') -> first();
-    //     $user->assignRole('admin');
-    //     return "hi";
-    // }
+     public function assign()
+     {
+         $user=User::where('name','doaa') -> first();
+         $user->assignRole('admin');
+         return "hi";
+     }
 }
