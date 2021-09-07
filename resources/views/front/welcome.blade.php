@@ -204,7 +204,7 @@
       </div>
          <div class="col-7 res-title">
       <h5  class="title"><a href="{{url ('/research/'.$r->id)}}" > 
-        {{ $r->limit($r->title)}}
+        {{ $r->limit($r->name)}}
         </a></h5>
     </div>
     </div>
