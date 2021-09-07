@@ -11,6 +11,6 @@ class Research extends Model
  
     public function limit($description)
     {
-        return Str::limit($description, 10 );
+        return Str::limit($description, 50 );
     }
 }
