@@ -56,6 +56,8 @@ class TeamController extends Controller
             'email' =>   $request->email,
             'telephone' =>  $request->telephone,
             'image' => $image,
+            'meta_desc'=>$request->meta_desc,
+            'meta_kw'=>$request->meta_kw,
         ]);
         return Redirect::back()->with(['success' =>'One team member has been added']);
     }
@@ -149,7 +151,7 @@ class TeamController extends Controller
             'specialization_ar' =>'required|max:70',
             'email' => 'required|email',
             'telephone' => 'required|numeric',
-            'photo_up' => 'mimes:png,jpg,jpeg|required',
+            'photo' => 'mimes:png,jpg,jpeg|required',
             'meta_desc'=>'required|max:150',
             'meta_kw'=>'required',
         ];
@@ -165,8 +167,8 @@ class TeamController extends Controller
             'specialization_en.max' => 'Specialization length does not be more than 70 characters',
             'specialization_ar.max' => 'Specialization length does not be more than 70 characters',
             'specialization_ar.required' => 'Specialization is required',
-            'photo_up.required' => 'Photo is required',
-            'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
+            'photo.required' => 'Photo is required',
+            'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
             'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length does not be more than 150',
             'meta_kw.required'=>'Meta keywords is required',

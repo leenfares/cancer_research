@@ -124,7 +124,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Meta Description</label>
                                         <div class="col-md-6 col-12">                                            
-                                            <textarea class="form-control"  name="meta_desc" rows="5">  </textarea>
+                                            <textarea class="form-control"  name="meta_desc" rows="5">  {{$team->meta_desc}} </textarea>
                                             <span class="help-block"> Meta description </span>
                                             @error('meta_desc')
                                                 <small class="form-text text-danger">{{$message}}</small>
@@ -134,7 +134,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Meta Keywords</label>
                                         <div class="col-md-6 col-12">                                            
-                                            <textarea class="form-control"  name="meta_kw" rows="5">  </textarea>
+                                            <textarea class="form-control"  name="meta_kw" rows="5">  {{$team->meta_kw}} </textarea>
                                             <span class="help-block"> Meta Keywords </span>
                                             @error('meta_kw')
                                                 <small class="form-text text-danger">{{$message}}</small>
