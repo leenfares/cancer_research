@@ -60,7 +60,7 @@ class ResearchController extends Controller
 
     public function update(Request $request)
     { 
-        $rules =$this->updateeRules();
+        $rules =$this->updateRules();
         $messages=$this->updateMessages();
         $request->validate($rules, $messages);
         $research = Research::find($request->ids);
@@ -125,7 +125,7 @@ class ResearchController extends Controller
             'name_ar' => 'required|max:250',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'photo' => 'mimes:png,jpg,jpeg|required',
+            'photo_up' => 'mimes:png,jpg,jpeg|required',
             's_file'=>'mimes:pdf|required',
             'meta_desc'=>'required|max:150',
             'meta_kw'=>'required',
@@ -140,8 +140,8 @@ class ResearchController extends Controller
             'name_ar.max' => 'Name length does not be more than 250',
             'description_en.required' => 'Description is required',
             'description_ar.required' => 'Description is required',
-            'photo.required' => 'Photo is required',
-            'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
+            'photo_up.required' => 'Photo is required',
+            'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
             's_file.required'=>'File is not valid',
             's_file.mimes' =>  'Only pdf files are allowable',
             'meta_desc.required'=>'Meta description is required',
@@ -156,7 +156,7 @@ class ResearchController extends Controller
             'name_ar' => 'required|max:250',
             'description_en' => 'required',
             'description_ar' => 'required',
-            'photo' => 'mimes:png,jpg,jpeg',
+            'photo_up' => 'mimes:png,jpg,jpeg',
             's_file'=>'mimes:pdf',
             'meta_desc'=>'required|max:150',
             'meta_kw'=>'required',
@@ -173,7 +173,7 @@ class ResearchController extends Controller
             'name_ar.max' => 'Name length dose not be more than 250',
             'description_en.required' => 'Description is required',
             'description_ar.required' => 'Description is required',
-            'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
+            'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
             's_file.mimes' =>  'Only pdf files are allowable',
             'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length dose not be more than 150',

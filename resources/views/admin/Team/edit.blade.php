@@ -11,6 +11,16 @@
        <strong>fail!</strong>  {{ session()->get('fail') }}
     </div>
 @endif
+@if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 
 
@@ -146,7 +156,7 @@
                                                 <span class="help-block">Current Personal image</span>
                                                 <input type="hidden" name="photo"  value="{{$team->image}}">
                                                 <a href="#"><img src=" {{ asset('/images/teams/'.$team->image) }}"></a>
-                                                @error('photo')
+                                                @error('photo_up')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                                 @enderror
                                             </div>
