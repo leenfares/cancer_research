@@ -76,6 +76,9 @@ Route::get('/panel', function() {
    ///
    Route::post('/partner/update', 'Admin\PartnerController@update');
    Route::get('/partner/{id}/delete', 'Admin\PartnerController@destroy');
+   ///
+   Route::post('/roles/update', 'Admin\RoleController@update');
+   Route::get('/roles/{id}/delete', 'Admin\RoleController@destroy');
    // Route::get('/creatroles', 'roleController@index');
    // Route::get('/remove', 'admin_controller@removeImage');
 });
