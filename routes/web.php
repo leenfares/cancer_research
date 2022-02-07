@@ -43,6 +43,8 @@ Route::group(
       Route::get('/about', function() {
          return view('front.about');
        });
+      Route::get('newstest/{id}','testController@view_news');   
+      
    });
 
 
@@ -56,6 +58,7 @@ Route::get('/home', 'front\HomeController@index')->name('home');
 
 /**************************************new****************************************/
 // Route::get('/assign', 'Admin\RoleController@assign');
+// Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
 Route::group(['prefix' => 'admin','middleware'=>'role:admin'], function () {
 Route::get('/panel', function() {
    return view('layouts.admin');
@@ -66,7 +69,7 @@ Route::get('/panel', function() {
       'partner' => 'Admin\PartnerController',
       'roles' => 'Admin\RoleController',
       'users' => 'Admin\UserContoller',
-      //'posts' => 'PostController'
+      'allnews' => 'Admin\AllnewsController',
       ]);
    Route::post('/teams/update', 'Admin\TeamController@update');
    Route::get('/teams/{id}/delete', 'Admin\TeamController@destroy');
@@ -79,12 +82,13 @@ Route::get('/panel', function() {
    ///
    Route::post('/roles/update', 'Admin\RoleController@update');
    Route::get('/roles/{id}/delete', 'Admin\RoleController@destroy');
-   // Route::get('/creatroles', 'roleController@index');
-   // Route::get('/remove', 'admin_controller@removeImage');
+   //
+   Route::post('/allnews/update', 'Admin\AllnewsController@update');
+   Route::get('/allnews/{id}/delete', 'Admin\AllnewsController@destroy');
+
 });
 
-Route::get('/test', 'testController@index');
-
-
-
+Route::get('/test', function() {
+   return view('test');
+ }); 
 

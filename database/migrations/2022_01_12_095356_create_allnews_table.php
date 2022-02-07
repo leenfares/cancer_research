@@ -16,7 +16,7 @@ class CreateAllnewsTable extends Migration
         Schema::create('allnews', function (Blueprint $table) {
             $table->id();
             $table->string('title_en')->default('new post');
-            $table->string('title_at')->default('خبر جديد');
+            $table->string('title_ar')->default('خبر جديد');
             $table->text('description_en')->default('english description')->nullable();
             $table->text('description_ar')->default('الوصف بالعربي');
             $table->timestamps();

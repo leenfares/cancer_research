@@ -23,7 +23,7 @@ padding:250px 0;
       </div>
          <div class="col-7 res-title">
       <h5  class="title"><a href="{{url ('/research/'.$r->id)}}" > 
-        {{ $r->description }}
+        { $r->description }}
         </a></h5>
     </div>
     </div>

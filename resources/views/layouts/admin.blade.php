@@ -2,12 +2,13 @@
 <html lang="en">
     <head>        
       
-          <title> Admin @yield('title')</title>          
+          <title> Admin | @yield('title')</title>          
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />   
        <link rel="stylesheet"  type="text/css" id="theme" href=" {{ url('/admin/css/theme-default.css') }}" >
        <link rel="stylesheet" href="{{ url('/fontawesome/css/all.css')}}">
+       <link rel="icon" href=" {{ url('/images/front/favicon.ico') }}" type="image/x-icon" />
        
        </head>
        <body>
@@ -22,7 +23,10 @@
                     <li class="xn-title">Navigation</li>
                     <li>
                         <a href="{{ url('/admin/panel')}}"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
-                    </li>        
+                    </li>    
+                    <li>
+                        <a href="{{ url('/admin/allnews')}}"><span class="fa fa-newspaper"></span> <span class="xn-text"> All News</span></a>
+                    </li>      
                     <li>
                         <a href="{{ url('/admin/teams')}}"><span class="fa fa-users"></span> <span class="xn-text"> Team</span></a>
                     </li>   
@@ -113,7 +117,7 @@
         <script type="text/javascript" src="{{ url('/admin/js/plugins/bootstrap/bootstrap-file-input.js')}}"></script>
         <script type="text/javascript" src="{{ url('/admin/js/plugins/bootstrap/bootstrap-select.js')}}"></script>
         <script type="text/javascript" src="{{ url('/admin/js/plugins/tagsinput/jquery.tagsinput.min.js')}}"></script>
-
+        <script type="text/javascript" src="{{ url('/admin/js/plugins/fileinput/fileinput.min.js')}}"></script>        
     </body>
 </html>
 

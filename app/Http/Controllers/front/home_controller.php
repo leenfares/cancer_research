@@ -5,7 +5,6 @@ namespace App\Http\Controllers\front;
 use Illuminate\Http\Request;
 use App\models\Research;
 use LaravelLocalization;
-use DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\models\Team;
