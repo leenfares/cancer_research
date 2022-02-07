@@ -50,6 +50,9 @@ class testController extends Controller
         'featured_image',
         'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description']);
+        // foreach(News::find($id)->images as $image){
+        //     echo  $image->path."</br>";
+        //  }
         $images = News::find($id)->images;
         return view('test',['news'=>$news,'images'=>$images]);
 

@@ -85,14 +85,7 @@
 
 
 
-       
-        {{ $news->featured_image }}
-        <br>
-        {{ $news->title }}
-        <br>
-
-        {{ $news->description }}
-        <br>
+     
         *********************************
 
 

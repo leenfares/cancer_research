@@ -112,8 +112,24 @@ class AllnewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+        if(!$news)
+        return redirect('admin/allnews')->with(['fail'=>'new was not found']); 
+        $image = public_path('images/featuredimgnews/'.$news->featured_image);
+        if(is_file($image)){
+            unlink($image);
+        }
+        foreach(News::find($id)->images as $image){
+            $photo = public_path('images/news_gallery/'.$image->path);
+            if(is_file($photo)){
+               unlink($photo);
+            }
+            Image::find($image->id)->delete();
+         }
+        $news->delete();  
+        return redirect('admin/allnews')->with(['success'=>'deleting has been done successfully']);  
     }
+
 
     /////////////////////////  validation messages and  rules ////////////////
 

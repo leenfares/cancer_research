@@ -2,6 +2,9 @@
 .form-horizontal .control-label{
     text-align:left !important;
 }
+td{
+    font-size:12px !important;
+}
 </style>
 @extends('layouts.admin')
 @section('title', 'News')
@@ -122,7 +125,7 @@
                         <div class="col-md-12">
                          <div class="panel panel-default">
                                 <div class="panel-heading">                                
-                                    <h3 class="panel-title">All Research</h3>
+                                    <h3 class="panel-title">All News</h3>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
                                         <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
@@ -160,6 +163,8 @@
                                     <span >{{ $a->created_at }} </span>
                                 </td>
                                  <td class="edit">
+                                    <a href="{{url('admin/allnews').'/'.$a->id.'/edit'}}"> <span class="fa fa-edit"></span></a>
+                                    <a href="{{url('admin/allnews').'/'.$a->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this research? ')"> <span class="fas fa-trash-alt"></span></a>
                                 </td>
                             </tr>
                     @endforeach
