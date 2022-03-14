@@ -40,9 +40,9 @@
     <div class="col-lg-3 col-md-3 col-sm-12 col-12">
       <ul class="social-menu list-inline">
          <li class="list-inline-item"> <a href="#"> <i class="fa fa-linkedin"></i></a></li>
-        <li  class="list-inline-item"> <a href="#"><i class="fa fa-facebook"></i></a> </li>
-        <li class="list-inline-item"> <a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li class="list-inline-item"> <a href="#"> <i class="fa fa-instagram"></i></a></li>
+        <li  class="list-inline-item"> <a href="https://www.facebook.com/CRCTUSY"><i class="fa fa-facebook"></i></a> </li>
+        <li class="list-inline-item"> <a href="#"><i class="fa fa-telegram"></i></a></li>
+        <li class="list-inline-item"> <a href="https://t.me/CRCTUSY"> <i class="fa fa-instagram"></i></a></li>
       </ul>
     </div> 
    </div>
