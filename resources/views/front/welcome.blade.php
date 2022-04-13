@@ -117,7 +117,7 @@
                     @endauth
                 </div>
             @endif -->
-
+<!-- 
 <section class="latest-news" id="allergy-news">
    <div class="container">
   <h3 class="cancer-title">
@@ -188,7 +188,7 @@
     </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section id="Research">
@@ -217,7 +217,7 @@
  
 <!-- </div> -->
 
-<section class="courses" >
+<!-- <section class="courses" >
   <div class="container">
        <h3 class="cancer-title " >
       <a href="studies.html">
@@ -276,7 +276,7 @@
        
   </div>
 </div>
-</section>
+</section> -->
 <section class="our-team">
   <div class="container">
   <h3 class="cancer-title">
