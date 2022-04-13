@@ -126,9 +126,10 @@ class ResearchController extends Controller
             'description_en' => 'required',
             'description_ar' => 'required',
             'photo' => 'mimes:png,jpg,jpeg|required',
-            's_file'=>'mimes:pdf|required',
-            'meta_desc'=>'required|max:150',
-            'meta_kw'=>'required',
+            // 's_file'=>'mimes:pdf|required',
+            's_file'=>'mimes:pdf',
+            'meta_desc'=>'max:150',
+            // 'meta_kw'=>'required',
         ];
     }
     public function createMessages()
@@ -142,11 +143,11 @@ class ResearchController extends Controller
             'description_ar.required' => 'Description is required',
             'photo.required' => 'Photo is required',
             'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
-            's_file.required'=>'File is not valid',
+            // 's_file.required'=>'File is not valid',
             's_file.mimes' =>  'Only pdf files are allowable',
-            'meta_desc.required'=>'Meta description is required',
+            // 'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length does not be more than 150',
-            'meta_kw.required'=>'Meta keywords is required',
+            // 'meta_kw.required'=>'Meta keywords is required',
         ];
     }
     public function updateRules()
@@ -158,8 +159,9 @@ class ResearchController extends Controller
             'description_ar' => 'required',
             'photo_up' => 'mimes:png,jpg,jpeg',
             's_file'=>'mimes:pdf',
-            'meta_desc'=>'required|max:150',
-            'meta_kw'=>'required',
+            // 'meta_desc'=>'required|max:150',
+            'meta_desc'=>'max:150',
+            // 'meta_kw'=>'required',
         
 
         ];
@@ -175,9 +177,9 @@ class ResearchController extends Controller
             'description_ar.required' => 'Description is required',
             'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
             's_file.mimes' =>  'Only pdf files are allowable',
-            'meta_desc.required'=>'Meta description is required',
+            // 'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length dose not be more than 150',
-            'meta_kw.required'=>'Meta keywords is required',
+            // 'meta_kw.required'=>'Meta keywords is required',
         ];
     }
 }
