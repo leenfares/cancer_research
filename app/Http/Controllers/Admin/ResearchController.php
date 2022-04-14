@@ -33,7 +33,7 @@ class ResearchController extends Controller
         $messages=$this->createMessages();
         $request->validate($rules, $messages);
         $image = $this->saveFile($request->photo, 'images/research');
-        $paper = $this->saveFile($request->s_file, 'files/research');
+        // $paper = $this->saveFile($request->s_file, 'files/research');
         Research::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
@@ -42,7 +42,7 @@ class ResearchController extends Controller
             'meta_desc'=>$request->meta_desc,
             'meta_kw'=>$request->meta_kw,
             'image' => $image,
-            'file' => $paper,
+            // 'file' => $paper,
         ]);
         return Redirect::back()->with(['success' =>'One team member has been added']);
     }
