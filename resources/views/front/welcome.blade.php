@@ -117,78 +117,35 @@
                     @endauth
                 </div>
             @endif -->
-<!-- 
-<section class="latest-news" id="allergy-news">
+            
+<section class="latest-news" >
    <div class="container">
   <h3 class="cancer-title">
-    <a href="#">
-    {{__('messages.last_news')}}
+    <a href="{{ url('/all_news')}}">
+    {{__('messages.latest_news')}}
     </a>
   </h3>
   <div class="items row">
+  @foreach($news as $n)
     <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
         <div class="icon">
           <div class="cancer-image">
-          <a href="#"><img src="{{ asset('/images/front/pexels-photo-256262.jpeg') }}"></a>
+          <a href="{{url ('/news/'.$n->id)}}"><img src="{{ asset('/images/featuredimgnews/'.$n->featured_image) }}"></a>
          </div>
         </div>
          <h5 class="new">
-           <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+           <a href="{{url ('/news/'.$n->id)}}">  {{$n->limit($n->title) }}
            </a>
          </h5>
          <div class="date">
            <span class="fa fa-calendar"></span>
-           <span> 03.03.2017</span> 
+           <span> {{strftime('%d-%m-%Y',strtotime($n->created_at))}}</span> 
          </div>
     </div>
-        <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
-        <div class="icon">
-          <div class="cancer-image">
-          <a href="#"><img src="{{ asset('/images/front/3.jpeg') }}" ></a>
-         </div>
-        </div>
-         <h5 class="new">
-           <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-           </a>
-         </h5>
-         <div class="date">
-           <span class="fa fa-calendar"></span>
-           <span> 03.03.2017</span> 
-         </div>
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
-        <div class="icon">
-          <div class="cancer-image">
-          <a href="#"><img src="{{ asset('/images/front/laboratory-2815641_1920.jpg') }}"></a>
-         </div>
-        </div>
-         <h5 class="new">
-           <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-           </a>
-         </h5> 
-               <div class="date">
-           <span class="fa fa-calendar"></span>
-           <span> 03.03.2017</span> 
-         </div>     
-    </div>
-    <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
-        <div class="icon">
-          <div class="cancer-image">
-          <a href="#"><img src="{{ asset('/images/front/pexels-photo-287227.jpeg') }}"></a>
-         </div>
-        </div>
-         <h5 class="new">
-           <a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-           </a>
-         </h5>
-               <div class="date">
-           <span class="fa fa-calendar"></span>
-           <span> 03.03.2017</span> 
-         </div>
-    </div>
+      @endforeach
     </div>
   </div>
-</section> -->
+</section>
 
 
 <section id="Research">

@@ -19,6 +19,7 @@
     @endif
     <link rel="icon" href=" {{ url('/images/front/Logo-sq.png') }}"  type="image/gif" sizes="16x16">
     <!-- <title>  @yield('title')</title> -->
+  
     </head>
   <body>
 
@@ -88,7 +89,7 @@
    <a class="logo" href="#"><img src="{{ asset('/images/front/logo-sq.png') }}"></a>
      
          <p>
-         {{__('messages.about')}}
+         <!-- {{__('messages.about')}} -->
          <p>
        </div>  
      <div class=" col-lg-3 col-md-3 col-sm-12 col-12">
@@ -134,9 +135,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script src="{{ url('/js/scripts.js') }}"></script>
-      <script type="text/javascript">
-
-      </script>
+      <!-- light gallery scripts -->
+           <script src="{{ url('/lightg/lightgallery/js/jquery.min.js') }}"></script>
+        <script src="{{ url('/lightg/static/js/prettify.js') }}"></script>
+        <script src="{{ url('/lightg/static/js/jquery.justifiedGallery.min.js') }}"></script>
+        <script src="{{ url('/lightg/static/js/transition.js') }}"></script>
+        <script src="{{ url('/lightg/static/js/collapse.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lightgallery.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lg-fullscreen.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lg-thumbnail.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lg-video.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lg-autoplay.js') }}"></script>
+    <script src="{{ url('/lightg/lightgallery/js/lg-zoom.js') }}"></script>
+        <script src="{{ url('/lightg/external/jquery.mousewheel.min.js') }}"></script>
+        <script src="{{ url('/lightg/static/js/demos.js') }}"></script>
   </body>
 </html>
 

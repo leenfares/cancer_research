@@ -661,8 +661,12 @@ div.blog div.title {
 	color: #3aa5a0;
 	font-size: 25px;
 }
+
 div.blog div.cancer-image{
 padding-bottom: 50%;
+}
+div.blog.news div.cancer-image{
+	padding-bottom: 65% !important;
 }
 /*******************************************NEW**************************************/
 div.blog section#new{
@@ -715,7 +719,7 @@ main.inside section.latest-news div.item{
 	margin-bottom: 30px;
 }
 main.inside section.latest-news div.item div.cancer-image{
-	padding-bottom: 50%;
+	padding-bottom: 65%;
 }
 /*************************************latest-news -view *******************************/
 div.blog section#latest-news{

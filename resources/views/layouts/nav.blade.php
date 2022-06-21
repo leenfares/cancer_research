@@ -27,6 +27,9 @@
         <a class="nav-link"  href="{{ url('/all_research')}} ">{{ __('messages.nav_research') }}</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link"  href="{{ url('/all_news')}} ">{{ __('messages.nav_news') }}</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link"  href="{{ url('/under_construction')}} ">{{ __('messages.nav_donate') }}</a>
       </li>
       <li class="nav-item">
@@ -69,6 +72,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link"  href="{{ url('/all_research')}} ">{{ __('messages.nav_research') }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="{{ url('/all_news')}} ">{{ __('messages.nav_news') }}</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/all_teams') }}">{{ __('messages.nav_team') }}</a>

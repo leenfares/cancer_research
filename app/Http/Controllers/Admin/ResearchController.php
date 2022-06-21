@@ -57,7 +57,7 @@ class ResearchController extends Controller
 
     public function edit($id)
     {
-      $research = Research::find($id);
+      $research = Research::findOrFail($id);
       return view('admin.research.edit',['research'=>$research]);
     }
 
@@ -66,7 +66,7 @@ class ResearchController extends Controller
         $rules =$this->updateRules();
         $messages=$this->updateMessages();
         $request->validate($rules, $messages);
-        $research = Research::find($request->ids);
+        $research = Research::findOrFail($request->ids);
         if(!$research)
            return Redirect::back()->with(['fail'=>'item was not found']);        
         $research->name_en = $request->name_en;
@@ -103,7 +103,7 @@ class ResearchController extends Controller
      */
     public function destroy($id )
     {
-        $research = Research::find($id);
+        $research = Research::findOrFail($id);
         if(!$research)
         return redirect('admin/research')->with(['fail'=>'item was not found']); 
         $image = public_path('images/research/'.$research->image);

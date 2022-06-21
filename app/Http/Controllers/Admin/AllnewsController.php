@@ -59,6 +59,7 @@ class AllnewsController extends Controller
             'featured_image' => $image,
         ]);
         $i=0;
+        if(isset($request->gallery)){
         foreach($request->gallery as $photo){
             $image = $this->saveGallery($photo,'images/news_gallery',$i);    
             Image::create([
@@ -67,6 +68,7 @@ class AllnewsController extends Controller
             ]);
             $i++;
         }        
+    }
         return Redirect::back()->with(['success' =>'One new has been added']);
     }
 
@@ -89,7 +91,9 @@ class AllnewsController extends Controller
      */
     public function edit($id)
     {
-        //
+     $news=News::findOrFail($id);
+     return view('admin.allnews.edit',['news'=>$news]);
+
     }
 
     /**
@@ -99,9 +103,34 @@ class AllnewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $news = News::findOrFail($request->ids);
+        $news->title_en = $request->title_en; 
+        $news->title_ar = $request->title_ar; 
+        $news->description_en = $request->description_en; 
+        $news->description_ar = $request->description_ar; 
+        if ($request->photo_up){
+            $path = public_path('images/featuredimgnews/'.$news->featured_image);
+            if(is_file($path))
+                unlink($path);
+            $image = $this->saveFile($request->photo_up, 'images/featuredimgnews');            
+            $news->featured_image = $image;   
+        }
+        $news->save();
+        $i=0;
+        if(isset($request->gallery)){
+        foreach($request->gallery as $photo){
+            $image = $this->saveGallery($photo,'images/news_gallery',$i);    
+            Image::create([
+            'path'=>$image,
+            'news_id'=>$news->id
+            ]);
+            $i++;
+        }        
+    }
+        return Redirect::back()->with(['success'=>'updating has been done successfully']);
+     
     }
 
     /**
@@ -112,14 +141,14 @@ class AllnewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::find($id);
+        $news = News::findOrFail($id);
         if(!$news)
         return redirect('admin/allnews')->with(['fail'=>'new was not found']); 
         $image = public_path('images/featuredimgnews/'.$news->featured_image);
         if(is_file($image)){
             unlink($image);
         }
-        foreach(News::find($id)->images as $image){
+        foreach( $news->images as $image){
             $photo = public_path('images/news_gallery/'.$image->path);
             if(is_file($photo)){
                unlink($photo);
@@ -130,6 +159,15 @@ class AllnewsController extends Controller
         return redirect('admin/allnews')->with(['success'=>'deleting has been done successfully']);  
     }
 
+public function destroy_news_img($id){
+    $image = Image::findOrFail($id);
+    $photo = public_path('images/news_gallery/'.$image->path);
+            if(is_file($photo)){
+               unlink($photo);
+            }
+    $image->delete();  
+    return redirect::back()->with(['success'=>'deleting has been done successfully']);  
+}
 
     /////////////////////////  validation messages and  rules ////////////////
 
@@ -141,6 +179,7 @@ class AllnewsController extends Controller
             'description_en' => 'required',
             'description_ar' => 'required',
             'photo' => 'mimes:png,jpg,jpeg|required',
+            'gallery' => 'mimes:png,jpg,jpeg',
           //  'meta_desc'=>'required|max:150',
            // 'meta_kw'=>'required',
         ];
@@ -156,6 +195,7 @@ class AllnewsController extends Controller
             'description_ar.required' => 'Description is required',
             'photo.required' => 'Photo is required',
             'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
+            'gallery.mimes' =>  'Only png, jpg and jpeg files are allowable',
             //'meta_desc.required'=>'Meta description is required',
             //'meta_desc.max'=>'Meta description length does not be more than 150',
            // 'meta_kw.required'=>'Meta keywords is required',
@@ -164,11 +204,12 @@ class AllnewsController extends Controller
     public function updateRules()
     {
         return  [
-            'name_en' => 'required|max:250',
-            'name_ar' => 'required|max:250',
+            'title_en' => 'required|max:250',
+            'title_ar' => 'required|max:250',
             'description_en' => 'required',
             'description_ar' => 'required',
             'photo_up' => 'mimes:png,jpg,jpeg',
+            'gallery' => 'mimes:png,jpg,jpeg',
            // 'meta_desc'=>'required|max:150',
             //'meta_kw'=>'required',
         
@@ -185,6 +226,7 @@ class AllnewsController extends Controller
             'description_en.required' => 'Description is required',
             'description_ar.required' => 'Description is required',
             'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
+            'gallery.mimes' =>  'Only png, jpg and jpeg files are allowable',
            // 'meta_desc.required'=>'Meta description is required',
             //'meta_desc.max'=>'Meta description length dose not be more than 150',
             //'meta_kw.required'=>'Meta keywords is required',

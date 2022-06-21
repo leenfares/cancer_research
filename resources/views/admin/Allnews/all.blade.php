@@ -137,7 +137,7 @@ td{
                                         <thead>
                                             <tr>
                                                 <th>id</th>
-                                                <th>URL</th>
+                                                <th>Title</th>
                                                 <th>Description</th>
                                                 <th>created at</th>
                                                 <th>Edit</th>
@@ -164,6 +164,7 @@ td{
                                 </td>
                                  <td class="edit">
                                     <a href="{{url('admin/allnews').'/'.$a->id.'/edit'}}"> <span class="fa fa-edit"></span></a>
+                                    <a href="{{url('news/'.$a->id)}}"> <span class="fa fa-eye"></span></a>
                                     <a href="{{url('admin/allnews').'/'.$a->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this research? ')"> <span class="fas fa-trash-alt"></span></a>
                                 </td>
                             </tr>

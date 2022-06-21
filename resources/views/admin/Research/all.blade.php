@@ -180,6 +180,7 @@
                                 </td>
                                  <td class="edit">
                                     <a href="{{url('admin/research').'/'.$r->id.'/edit'}}"> <span class="fa fa-edit"></span></a>
+                                    <a href="{{url('research/'.$r->id)}}"> <span class="fa fa-eye"></span></a>
                                     <a href="{{url('admin/research').'/'.$r->id.'/delete'}} " onclick="return confirm( 'Are you sure that you want to delete this research? ')"> <span class="fas fa-trash-alt"></span></a>
                                 </td>
                             </tr>

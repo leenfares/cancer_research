@@ -174,7 +174,7 @@ main.index section#about  p,
 main.index section#about  ul
 {
 	color:#737373;
-
+text-align: right;
 }
 main.index section#about   div.about-img{
     padding: 0 100px 0px 100px;
@@ -737,8 +737,12 @@ div.blog section#new div.pager a :hover{
 main.inside section.latest-news div.item{
 	margin-bottom: 30px;
 }
+main section.latest-news div.item,
+main.inside section.latest-news div.item {
+	text-align: right !important;
+}
 main.inside section.latest-news div.item div.cancer-image{
-	padding-bottom: 50%;
+	padding-bottom: 65%;
 }
 /*************************************latest-news -view *******************************/
 div.blog section#latest-news{

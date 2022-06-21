@@ -44,10 +44,24 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        // return  $request->input('is_on_homepage');
         $rules =$this->createRules();
         $messages=$this->createMessages();
         $request->validate($rules, $messages);
         $image = $this->saveFile($request->photo, 'images/teams');
+        $is_on_homepage=0;
+        if(isset($request->is_on_homepage)){
+            $is_on_homepage=1;
+        }
+        // return $is_on_homepage;
+        $meta_desc=" ";
+        if(isset($request->meta_desc)){
+            $meta_desc=$request->meta_desc;
+        }
+        $meta_kw=" ";
+        if(isset($request->meta_kw)){
+            $meta_desc=$request->meta_kw;
+        }
         Team::create([
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
@@ -56,8 +70,9 @@ class TeamController extends Controller
             'email' =>   $request->email,
             'telephone' =>  $request->telephone,
             'image' => $image,
-            'meta_desc'=>$request->meta_desc,
-            'meta_kw'=>$request->meta_kw,
+            'is_on_homepage'=>$is_on_homepage,
+            'meta_desc'=> $meta_desc,
+            'meta_kw'=>$meta_kw,
         ]);
         return Redirect::back()->with(['success' =>'One team member has been added']);
     }
@@ -83,7 +98,7 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-      $team = Team::find($id);
+      $team = Team::findOrFail($id);
       return view('admin.team.edit',['team'=>$team]);
 
     }
@@ -100,6 +115,10 @@ class TeamController extends Controller
         $rules =$this->updateRules();
         $messages=$this->updateMessages();
         $request->validate($rules, $messages);
+        $is_on_homepage=0;
+        if(isset($request->is_on_homepage)){
+            $is_on_homepage=1;
+        }
         $team = Team::find($request->ids);
         if(!$team)
            return Redirect::back()->with(['fail'=>'item was not found']);        
@@ -107,6 +126,7 @@ class TeamController extends Controller
         $team->name_ar = $request->name_ar;
         $team->email = $request->email;
         $team->telephone = $request->telephone;
+        $team->is_on_homepage=$is_on_homepage;
         $team->specialization_en = $request->specialization_en;   
         $team->specialization_ar = $request->specialization_ar;   
         if ($request->photo_up){
@@ -130,7 +150,7 @@ class TeamController extends Controller
      */
     public function destroy($id)
     {
-        $team = Team::find($id);
+        $team = Team::findOrFail($id);
         if(!$team)
         return redirect('ad min/teams')->with(['fail'=>'item was not found']); 
         $path = public_path('images/teams/'.$team->image);
@@ -152,8 +172,9 @@ class TeamController extends Controller
             'email' => 'required|email',
             'telephone' => 'required|numeric',
             'photo' => 'mimes:png,jpg,jpeg|required',
-            'meta_desc'=>'required|max:150',
-            'meta_kw'=>'required',
+            'meta_desc'=>'max:150',
+            // 'meta_desc'=>'required|max:150',
+            // 'meta_kw'=>'required',
         ];
     }
     public function createMessages()
@@ -169,9 +190,9 @@ class TeamController extends Controller
             'specialization_ar.required' => 'Specialization is required',
             'photo.required' => 'Photo is required',
             'photo.mimes' =>  'Only png, jpg and jpeg files are allowable',
-            'meta_desc.required'=>'Meta description is required',
+            // 'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length does not be more than 150',
-            'meta_kw.required'=>'Meta keywords is required',
+            // 'meta_kw.required'=>'Meta keywords is required',
         ];
     }
     public function updateRules()
@@ -184,8 +205,9 @@ class TeamController extends Controller
             'email' => 'required|email',
             'telephone' => 'required|numeric',
             'photo_up' => 'mimes:png,jpg,jpeg',
-            'meta_desc'=>'required|max:150',
-            'meta_kw'=>'required',
+            // 'meta_desc'=>'required|max:150',
+            'meta_desc'=>'max:150',
+            // 'meta_kw'=>'required',
       
         ];
     }
@@ -201,9 +223,9 @@ class TeamController extends Controller
             'specialization_ar.max' => 'Specialization length does not be more than 70 characters',
             'specialization_ar.required' => 'Specialization is required',
             'photo_up.mimes' =>  'Only png, jpg and jpeg files are allowable',
-            'meta_desc.required'=>'Meta description is required',
+            // 'meta_desc.required'=>'Meta description is required',
             'meta_desc.max'=>'Meta description length does not be more than 150',
-            'meta_kw.required'=>'Meta keywords is required',
+            // 'meta_kw.required'=>'Meta keywords is required',
         ];
     }
     

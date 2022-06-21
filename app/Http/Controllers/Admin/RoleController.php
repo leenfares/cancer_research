@@ -72,7 +72,7 @@ class RoleController extends Controller
      */
     public function edit($id)
 {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         $permissions= Permission::get();
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
         ->pluck('role_has_permissions.permission_id')
@@ -91,7 +91,7 @@ class RoleController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, ['name' => 'required']);
-        $role = Role::find($request->ids);
+        $role = Role::findOrFail($request->ids);
         if(!$role)
            return Redirect::back()->with(['fail'=>'role was not found']);        
         $role->name = $request->name;
@@ -109,7 +109,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id);
+        $role = Role::findOrFail($id);
         if(!$role)
         return redirect('admin/roles')->with(['fail'=>'role was not found']); 
         $role->delete();  

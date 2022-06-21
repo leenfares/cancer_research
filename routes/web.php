@@ -34,9 +34,11 @@ Route::group(
    ], function(){ 
       Route::get('/all_research', 'front\home_controller@all_research');
       Route::get('/all_partners','front\home_controller@all_partners');
+      Route::get('/all_news','front\home_controller@all_news');
       Route::get('/all_teams', 'front\home_controller@all_teams');
       Route::get('/','front\home_controller@index');
       Route::get('research/{id}','front\home_controller@view_research');
+      Route::get('news/{id}','front\home_controller@view_news');
       Route::get('/under_construction', function() {
          return view('front.under_cons');
       });
@@ -85,6 +87,7 @@ Route::get('/panel', function() {
    //
    Route::post('/allnews/update', 'Admin\AllnewsController@update');
    Route::get('/allnews/{id}/delete', 'Admin\AllnewsController@destroy');
+   Route::get('/new-img/{id}/delete', 'Admin\AllnewsController@destroy_news_img');
 
 });
 

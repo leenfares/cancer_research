@@ -81,7 +81,7 @@ class PartnerController extends Controller
      */
     public function edit($id)
     {
-        $partner = Partner::find($id);
+        $partner = Partner::findOrFail($id);
         return view('admin.partner.edit',['partner'=>$partner]);
     }
 
@@ -119,7 +119,7 @@ class PartnerController extends Controller
      */
     public function destroy($id)
     {
-        $partner = Partner::find($id);
+        $partner = Partner::findOrFail($id);
         if(!$partner)
         return redirect('admin/partner')->with(['fail'=>'item was not found']); 
         $image = public_path('images/partners/'.$partner->image);

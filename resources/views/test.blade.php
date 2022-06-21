@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -72,24 +72,8 @@
         <script src="{{ url('/lightg/lightgallery/js/lg-thumbnail.js') }}"></script>
         <script src="{{ url('/lightg/lightgallery/js/lg-video.js') }}"></script>
         <script src="{{ url('/lightg/lightgallery/js/lg-autoplay.js') }}"></script>
-    <script src="{{ url('/lightg/lightgallery/js/lg-zoom.js') }}"></script>
+        <script src="{{ url('/lightg/lightgallery/js/lg-zoom.js') }}"></script>
         <script src="{{ url('/lightg/external/jquery.mousewheel.min.js') }}"></script>
         <script src="{{ url('/lightg/static/js/demos.js') }}"></script>
     </body>
-</html> -->
-
-
-
-
-
-
-
-
-     
-        *********************************
-
-
-        @foreach($images as $i)
-          {{ $i->path }}
-        @endforeach
- 
+</html> 

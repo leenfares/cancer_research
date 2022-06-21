@@ -22,10 +22,15 @@ padding:250px 0;
             <!-- <div class="cancer-image">
               <img src=" {{ asset('/images/research/'.$single_research->image) }}">
             </div> -->
-
+            @if(!empty($single_research->file))
             <object data="{{asset('/files/research/'.$single_research->file)}}" type="application/pdf" width="100%" height="500px">
                 <p>Alternative text - include a link <a href=" {{ asset('/files/research/'.$single_research->file) }}" >to the PDF!</a></p>
             </object>
+            @else
+            <div class="cancer-image">
+              <img src=" {{ asset('/images/research/'.$single_research->image) }}">
+            </div>
+            @endif
             <div class="description">
               {{$single_research->description}}
             </div>

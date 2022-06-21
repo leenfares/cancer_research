@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\models\Research;
+use App\models\News;
 use LaravelLocalization;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -39,20 +40,28 @@ class home_controller extends Controller {
     'file',
     'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
     'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
-    )->orderBy('id', 'DESC')->paginate(2);
+    )->orderBy('id', 'DESC')->take(2)->get();
     $teams = Team::select('id',
     'image',
     'telephone',
     'email',
     'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
     'specialization_' . LaravelLocalization::getCurrentLocale() . ' as specialization'
-    )->paginate(6);
+    )->where('is_on_homepage',1)
+    ->orderBy('id', 'DESC')->take(6)->get();
     $partners= Partner::select ('id',
     'image',
     'url',
     'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
-    )->orderBy('id', 'DESC')->paginate(4);
-    return view('front.welcome',['teams'=>$teams,'research'=>$research,'partner'=>$partners]);
+    )->orderBy('id', 'DESC')->take(4)->get();
+    $news = News::select('id',
+    'featured_image',
+    'created_at',
+    'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
+    'description_' . LaravelLocalization::getCurrentLocale() . ' as description',
+      )->orderBy('id','desc')
+      ->take(4)->get();
+    return view('front.welcome',['news'=>$news,'teams'=>$teams,'research'=>$research,'partner'=>$partners]);
    }
 
      public function all_teams() {
@@ -62,10 +71,22 @@ class home_controller extends Controller {
       'specialization_' . LaravelLocalization::getCurrentLocale() . ' as specialization',
       'email',
       'telephone'
-        )->paginate(20);
+        )->orderBy('id','desc')
+        ->paginate(20);
        return view('front.all_teams',['teams'=>$teams]);
    }
- 
+
+   public function all_news(){
+    $news = News::select('id',
+    'created_at',
+    'featured_image',
+    'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
+    'description_' . LaravelLocalization::getCurrentLocale() . ' as description',
+      )->orderBy('id','desc')
+      ->paginate(20);
+     return view('front.all_news',['news'=>$news]);
+   }
+
      public function all_research() {      
       SEOMeta::setTitle( __('messages.latest_res'));
       SEOMeta::setDescription('The adoption of a cancer research center at Tishreen University will be a very important step in the history of the university because we will take the decision to challenge the tragedy caused by a disease that is said to be the emperor of all diseases');
@@ -82,7 +103,8 @@ class home_controller extends Controller {
         'file',
         'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
-          )->paginate(20);
+          )->orderBy('id', 'DESC')
+          ->paginate(20);
          return view('front.all_research',['research'=>$research]);
    }
 
@@ -100,7 +122,7 @@ class home_controller extends Controller {
         $partner = Partner::select('id',
         'image',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
-          )->paginate(20);
+          )->orderBy('id', 'DESC')->paginate(20);
          return view('front.all_partners',['partner'=>$partner]);
    }
    
@@ -120,7 +142,7 @@ class home_controller extends Controller {
       echo 'Password: '.$password;
    }
     public function view_research($id){
-        $single_research = Research::find($id, ['image',
+        $single_research = Research::findORFail($id, ['image',
         'created_at',
         'file',
         'id',
@@ -146,8 +168,26 @@ class home_controller extends Controller {
         'file',
         'name_' . LaravelLocalization::getCurrentLocale() . ' as name',
         'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
-        )->orderBy('id', 'DESC')->paginate(4);
+        )->orderBy('id', 'DESC')->take(4)->get();
        return view('front.view_research',['single_research'=>$single_research,'latest_research'=>$latest_research]);
+    }
+
+    public function view_news($id){
+      $single_news = News::findORFail($id, 
+      ['featured_image',
+      'created_at',
+      'id',
+      'title_'. LaravelLocalization::getCurrentLocale() . ' as title',
+      'description_' . LaravelLocalization::getCurrentLocale() . ' as description'
+      ]); 
+
+      // $single_news=News::findORFail($id);
+      $latest_news = News::select('id',
+      'featured_image',
+      'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
+      )->orderBy('id', 'DESC')->take(4)->get();
+      // dd($latest_news);
+     return view('front.view_news',['single_news'=>$single_news,'latest_news'=>$latest_news]);
     }
 
 }

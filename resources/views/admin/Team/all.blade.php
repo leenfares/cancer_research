@@ -118,6 +118,15 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Show Dr on homepage</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <div class="input-group">
+                                                <input type="checkbox"  style="margin-top: 10px;" name="is_on_homepage"/>
+                                            </div>                                            
+                                            <span class="help-block">Show Homepage (max is 6)</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-3 col-12 control-label">Meta Description</label>
                                         <div class="col-md-6 col-12">                                            
                                             <textarea class="form-control"  name="meta_desc" rows="5">  </textarea>
@@ -181,6 +190,7 @@
                                                 <th>Email</th>
                                                 <th>Telephone</th>
                                                 <th>Specialization</th>
+                                                <th>Is on homepage</th>
                                                 <th>created at</th>
                                                 <th>Edit</th>
 
@@ -205,6 +215,9 @@
                                 </td>
                                 <td>
                                     <span >{{ $t->specialization_en }} </span>
+                                </td>
+                                <td>
+                                    <span >{{ $t->is_on_homepage }} </span>
                                 </td>
                                 <td>
                                     <span >{{ $t->created_at }} </span>

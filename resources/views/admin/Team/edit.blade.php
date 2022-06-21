@@ -22,8 +22,6 @@
 @endif
 
 
-
-
      <div class="page-content-wrap">
             <div class="row">
              <div class="col-md-12">
@@ -119,6 +117,19 @@
                                             @error('telephone')
                                                 <small class="form-text text-danger">{{$message}}</small>
                                             @enderror
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-12 control-label">Show Dr on homepage</label>
+                                        <div class="col-md-6 col-12">                                            
+                                            <div class="input-group">
+                                                @if($team->is_on_homepage)
+                                                <input type="checkbox"  style="margin-top: 10px;" name="is_on_homepage" checked/>
+                                            @else
+                                            <input type="checkbox"  style="margin-top: 10px;"  name="is_on_homepage"/>
+                                            @endif
+                                            </div>                                            
+                                            <span class="help-block">Show Homepage (max is 6)</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
