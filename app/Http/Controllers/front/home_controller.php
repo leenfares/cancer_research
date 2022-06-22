@@ -182,7 +182,7 @@ class home_controller extends Controller {
       // $single_news=News::findORFail($id);
       $latest_news = News::select('id',
       'featured_image',
-      'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
+      'title_' . LaravelLocalization::getCurrentLocale() . ' as title'
       )->orderBy('id', 'DESC')->take(4)->get();
       // dd($latest_news);
      return view('front.view_news',['single_news'=>$single_news,'latest_news'=>$latest_news]);
