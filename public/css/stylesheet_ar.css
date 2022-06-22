@@ -309,7 +309,7 @@ main.index section.our-team div.item div.extra ul.dr-info i.fa-mobile-phone{
 main.index section.our-team div.item div.extra ul.dr-info a{
     color: #a8a9aa;
     text-decoration: none;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 main.index section.our-team div.item div.extra ul.dr-info a:hover{
     color: #2A93C9;

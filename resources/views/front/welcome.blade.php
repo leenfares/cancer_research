@@ -249,7 +249,7 @@
             <p class="career">  {{ $t->specialization }} </p>
             <p class="name"><a href="#"> DR. {{$t->name}} </a></p>
             <ul  class="dr-info">
-               <li><i class="fa fa-mobile-phone"></i><a href="#"> + 0963 {{$t->telephone}}</a></li>
+               <li><i class="fa fa-mobile-phone"></i><a href="#" dir="ltr"> + 0963 {{$t->telephone}}</a></li>
                <li style="white-space: nowrap;"> <i class="fa fa-envelope"></i><a href="mailto:{{$t->email}} "> {{$t->email}} </a></li>
            </ul>         
           </div>
