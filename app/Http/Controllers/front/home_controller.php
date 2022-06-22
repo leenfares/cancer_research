@@ -80,8 +80,7 @@ class home_controller extends Controller {
     'created_at',
     'featured_image',
     'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
-    'description_' . LaravelLocalization::getCurrentLocale() . ' as description',
-      )->orderBy('id','desc')
+    'description_' . LaravelLocalization::getCurrentLocale() . ' as description')->orderBy('id','desc')
       ->paginate(20);
      return view('front.all_news',['news'=>$news]);
    }
