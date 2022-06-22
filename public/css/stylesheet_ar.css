@@ -283,6 +283,7 @@ main.index section.our-team div.item div.extra {
     color: #a8a9aa;
     font-size: 12px;
     transition: .7s ease-in ;
+	text-align: right;
 }
 main.index section.our-team div.item:hover div.extra{
 	box-shadow: inset 0 0  28px #d3d3d3;

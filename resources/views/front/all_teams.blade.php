@@ -17,7 +17,7 @@ padding:250px 0;
    <h3 class="cancer-title"> <a href="#"> {{__('messages.our_team')}}</a></h3>
    <div class="items row">
     @foreach($teams as $t)
-      <div class="col-lg-2 col-md-2 col-sm-12 col-12 item">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
           <div class="cancer-image">
            <img src=" {{ asset('/images/teams/'.$t->image) }}">
           </div>
@@ -26,7 +26,7 @@ padding:250px 0;
             <p class="name"><a href="#"> DR. {{$t->name}} </a></p>
             <ul  class="dr-info">
                <li><i class="fa fa-mobile-phone"></i><a href="#"> {{$t->telephone}}</a></li>
-               <li> <i class="fa fa-envelope"></i><a href="#"> {{$t->email}} </a></li>
+               <li  style="white-space: nowrap;"> <i class="fa fa-envelope"></i><a href="#"> {{$t->email}} </a></li>
            </ul>         
           </div>
       </div>
