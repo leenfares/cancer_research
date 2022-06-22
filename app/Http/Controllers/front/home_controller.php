@@ -58,8 +58,7 @@ class home_controller extends Controller {
     'featured_image',
     'created_at',
     'title_' . LaravelLocalization::getCurrentLocale() . ' as title',
-    'description_' . LaravelLocalization::getCurrentLocale() . ' as description',
-      )->orderBy('id','desc')
+    'description_' . LaravelLocalization::getCurrentLocale() . ' as description')->orderBy('id','desc')
       ->take(4)->get();
     return view('front.welcome',['news'=>$news,'teams'=>$teams,'research'=>$research,'partner'=>$partners]);
    }
