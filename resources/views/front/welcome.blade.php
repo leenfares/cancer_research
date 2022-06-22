@@ -241,7 +241,7 @@
     <div class="items row">
 
     @foreach($teams as $t)
-      <div class="col-lg-2 col-md-2 col-sm-12 col-12 item">
+      <div class="col-lg-3 col-md-3 col-sm-12 col-12 item">
           <div class="cancer-image">
             <a href="#"><img src=" {{ asset('/images/teams/'.$t->image) }}"></a>
           </div>
